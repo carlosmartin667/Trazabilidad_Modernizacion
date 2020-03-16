@@ -27,14 +27,14 @@ export class ConsultasPlasticosServices {
     };
 
 
-    GetListaPlasticos(PaginaActual: number): Observable<any> {
-     
-        return this._http.post<any>(Constantes.URL_OBTENER_SOLICITUDES_PLASTICOS, JSON.stringify(PaginaActual), _httpOptions)
+    GetListaPlasticos(PaginaActual: number): Observable<HttpResponse<DetallePlasticoModel[]>> {
+        let consulta = Constantes.URL_OBTENER_SOLICITUDES_PLASTICOS + "?PaginaActual=" + PaginaActual;
+        return this._http.get<DetallePlasticoModel[]>(consulta, { observe: 'response' })
             .pipe(
-                map(
-                    (response: DetallePlasticoModel[]) => response
-                )
-            );
+                catchError((error: HttpErrorResponse) => {
+                    console.log(error.message);
+                    return throwError(error.message);
+                }))
     };
 
 

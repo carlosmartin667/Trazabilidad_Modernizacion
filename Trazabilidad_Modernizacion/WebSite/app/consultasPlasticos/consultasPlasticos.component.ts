@@ -5,6 +5,7 @@ import { DetallePlasticoModel } from "../model/detallePlasticoModel";
 import { ComboModel } from "../model/ComboModel";
 import { Conversion } from "../model/Conversion";
 import { Estado } from "../model/Estado";
+import { PaginadorModel } from "../model/PaginadorModel";
 
 @Component({
     selector: 'consultasPlasticos-component',
@@ -25,6 +26,8 @@ export class ConsultasPlasticosComponent implements OnInit {
     public listaCombo: ComboModel;
     public cantidad: number = 0;
     public concepto_descripcion: any;
+    public paginadorModel: PaginadorModel;
+
 
     public CantidadDeRegistros: number = 0;
     public numeroPaginador: number = 0;
@@ -37,10 +40,11 @@ export class ConsultasPlasticosComponent implements OnInit {
         this.marca = new Conversion;
         this.estado = new Estado;
         this.prdoucto = new Conversion;
+        this.paginadorModel = new PaginadorModel;
 
     }
     ngOnInit(): void {
-        this._consultasPlasticosServices.GetListaPlastico(this.PaginaActual).subscribe(x => {
+        this._consultasPlasticosServices.GetListaPlasticos(this.PaginaActual).subscribe(x => {
             this.listaPlastico = x.body;
             this.cantidad = this.listaPlastico.length;
         });

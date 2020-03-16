@@ -29,9 +29,9 @@ namespace WebSite.Controllers
         {
             return View();
         }
-        public JsonResult ObtenerListaPlastico( )
+        public JsonResult ObtenerListaPlastico(int PaginaActual)
         {
-            int PaginaActual = 1;
+            //int PaginaActual = 1;
             var infoPaginacion = ObtenerInfoPaginacion();
             var resultado = plasticosRepository.Get().OrderBy(x => x.Reg_id)
                 .Skip((PaginaActual - 1) * 10)
