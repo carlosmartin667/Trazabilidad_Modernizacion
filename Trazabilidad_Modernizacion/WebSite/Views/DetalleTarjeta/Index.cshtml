@@ -1,0 +1,13 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    System.import('detalleTarjeta').catch(function (err) { console.error(err); });
+</script>
+<div class="container-xl">
+	<detalleTarjeta-component>
+		<div id="cover-spin"></div>
+	</detalleTarjeta-component>
+</div>

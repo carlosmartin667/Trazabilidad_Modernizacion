@@ -1,0 +1,390 @@
+﻿<div class="seccion">
+	<div class="panel-group row" id="accordion" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-bancor">
+			<div class="panel-heading active" role="tab" id="headingOne">
+				<h4 class="panel-title">
+					<span>Filtros de B&uacute;squeda</span>
+					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"></a>
+				</h4>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+				<div class="panel-body">
+					<div class="row">
+						<div class="divisor-bancor">
+							<h4>Datos de la Tarjeta</h4>
+						</div>
+						<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+							<div class="col-md-3 col-sm-3">
+								<div class=" row col-md-6 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<label class="LabelTextBox">Sucursal</label>
+										<input id="nroSucursalTxt" type="number" class="input form-control" (focusout)="BuscarDescripcionSucursal()" onkeydown="if(this.value.length > 4 ) return false;" [(ngModel)]="modelConsulta.datosTarjeta.sucursal_nro" />
+									</div>
+								</div>
+								<div class="col-md-6 hidden-sm hidden-xs">
+									<div class="form-group">
+										<div style="margin-top:20px;margin-left:-20px;">
+											<input style="width:120% !important;" value="{{sucursal_descripcion}}" type="text" class="input form-control" disabled />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">Marca</label>
+									<select [(ngModel)]="modelConsulta.datosTarjeta.marca" class="select form-control" id="marcaSelect" (change)="ObtenerProductosPorMarca()">
+										<option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+										<option *ngFor="let mar of modelMarcas" [ngValue]="mar">{{mar.nombreMarca}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">Producto</label>
+									<select [(ngModel)]="modelConsulta.datosTarjeta.producto" class="select form-control" id="productoSelect">
+										<option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+										<option *ngFor="let pro of modelProductos" [ngValue]="pro">{{pro.nombreProducto}}</option>
+
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">GAF</label>
+									<select [(ngModel)]="modelConsulta.datosTarjeta.gaf" class="select form-control" id="gafSelect">
+										<option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+										<option *ngFor="let gaf of modelGrupoAfinidad" [ngValue]="gaf">{{gaf.descripcion}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">N&uacute;mero Cuenta</label>
+									<input [(ngModel)]="modelConsulta.datosTarjeta.nro_cuenta" id="nroCuentaTxt" type="number" class="input form-control" onkeydown="if(this.value.length > 10 ) return false;" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">N&uacute;mero Tarjeta</label>
+									<input [(ngModel)]="modelConsulta.datosTarjeta.nro_tarjeta" id="nroTarjetaTxt" type="number" class="input form-control" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="divisor-bancor">
+							<h4>Datos de la Pieza</h4>
+						</div>
+						<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">Estado</label>
+									<select [(ngModel)]="modelConsulta.datosPieza.estado" class="select form-control" id="estadosSelect">
+										<option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+										<option *ngFor="let est of modelEstados" [ngValue]="est">{{est.descripcion}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">Fecha Estado Desde</label>
+									<input [(ngModel)]="modelConsulta.datosTarjeta.fecha_estado_desde" type="text" placeholder="dd/mm/aaaa" class="input form-control" id="fechaEstadoDesdeTxt" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">Fecha Estado Hasta</label>
+									<input [(ngModel)]="modelConsulta.datosTarjeta.fecha_estado_hasta" type="text" placeholder="dd/mm/aaaa" class="input form-control" id="fechaEstadoHastaTxt" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">N&uacute;mero Acuse</label>
+									<input [(ngModel)]="modelConsulta.datosPieza.nro_acuse" id="nroAcuseTxt" type="text" class="input form-control" onkeydown="if(this.value.length > 10 ) return false;" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">Centro de Embozado</label>
+									<select [(ngModel)]="modelConsulta.datosPieza.centro_embozado" class="select form-control" id="centroEmbozadoSelect">
+										<option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+										<option *ngFor="let origenEmbozo of modelOrigenEmbozo" [ngValue]="origenEmbozo.codigo_destino">{{origenEmbozo.concepto_descripcion}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">Motivo de Impresión</label>
+									<select [(ngModel)]="modelConsulta.datosPieza.motivo_impresion" class="select form-control" id="motivoImpresionSelect">
+										<option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+										<option *ngFor="let motivoImpresion of modelMotivoImpresion" [ngValue]="motivoImpresion.codigo_destino">{{motivoImpresion.concepto_descripcion}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">Modalidad de Entrega</label>
+									<select [(ngModel)]="modelConsulta.datosPieza.modalidad_entrega" class="select form-control" id="modalidadEntregaSelect">
+										<option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+										<option *ngFor="let modalidadEntrega of modelModalidadesEntrega" [ngValue]="modalidadEntrega.codigo">{{modalidadEntrega.nombre}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="divisor-bancor">
+							<h4>
+								<span class="col-md-6">Datos del Cliente</span>
+								<span>Datos de la Solicitud</span>
+							</h4>
+						</div>
+						<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">Tipo Documento</label>
+									<select [(ngModel)]="modelConsulta.datosCliente.tipo_documento" class="select form-control" id="tipoDOCSelect">
+										<option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+										<option *ngFor="let tipoDOC of modelTipoDOC" [ngValue]="tipoDOC.codigo_destino">{{tipoDOC.concepto_descripcion}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">Número Documento</label>
+									<input [(ngModel)]="modelConsulta.datosCliente.nro_documento" id="nroDOCTxt" type="number" class="input form-control" onkeydown="if(this.value.length > 10 ) return false;" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<div class="form-group">
+									<label style="padding-left:10px;" class="LabelTextBox">Canal de Origen</label>
+									<select [(ngModel)]="modelConsulta.canal_origen" class="select form-control" id="canalOrigenSelect">
+										<option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+										<option *ngFor="let canalOrigen of modelCanalOrigen" [ngValue]="canalOrigen.codigo_destino">{{canalOrigen.concepto_descripcion}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<input type="button" value="Buscar" (click)="BuscarSolicitudes()"
+								   [ngStyle]="{ 'cursor' : 'pointer' }"
+								   class="Boton-lg" />
+						</div>
+					</div>
+					<div class="row col-md-6" style="margin-top:10px">
+						<div class="alert alert-warning" role="alert" *ngIf="validaciones?.length > 0">
+							<ul>
+								<li *ngFor="let val of validaciones">{{val}}</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel-group row" id="accordion2" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-bancor">
+			<div class="panel-heading active" role="tab" id="heading2">
+				<h4 class="panel-title">
+					<span>Resultados de la Búsqueda</span>
+					<a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+					</a>
+				</h4>
+			</div>
+			<div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+				<!--<div class="row">
+					<div class="col-md-12"></div>
+					<div class="center-block" style="text-align:center">
+						<img src="Content/Imagenes/Spinner.gif" class="imagenRecarga" />
+					</div>
+				</div>-->
+				<ng-container>
+
+					<div class="col-md-12" style="padding-left:55px; padding-top:15px;">
+						<a class="btn btn-default" title="Exportar resultados">
+							<span class="fas fa-file-excel"></span>
+						</a>
+					</div>
+					<div class="col-md-12 table-responsive">
+						<table class="Tabla" id="resultadoTbl" style="margin-top:10px">
+							<thead>
+								<tr class="">
+									<th>Plásico</th>
+									<th>Suc</th>
+									<th>Apellido/Nombre</th>
+									<th>Documento</th>
+									<th>Cuenta</th>
+									<th>Producto</th>
+									<th>Fecha Estado</th>
+									<th>Estado</th>
+									<th>Mot Impr</th>
+									<th>Mod Entr</th>
+									<th>Canal Origen</th>
+									<th>Acuse</th>
+									<th>Acciones</th>
+									<th>Seleccionar</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="FilaTabla">
+									<td>9343</td>
+									<td>345</td>
+									<td>ROMERO MARIA</td>
+									<td>DNI-303444118</td>
+									<td>34555881</td>
+									<td>CORDOBESA MasterCard internacional</td>
+									<td>21/11/2019</td>
+									<td>ATESORADO</td>
+									<td>ALTA</td>
+									<td>DO</td>
+									<td>SUC</td>
+									<td>0020-34533332219</td>
+									<td style="text-align:center">
+										<button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="Imprimir Solicitud">
+											<span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="Exportar">
+											<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="Cambio Masivo">
+											<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+										</button>
+									</td>
+									<td>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+										</div>
+									</td>
+								</tr>
+							</tbody>
+							<!--
+							<tbody >
+								<tr class="HeaderGrupoFilas">
+									<td>
+										<div class="itemTable-collapsible">
+											<a class="btn btn-default btn-sm" aria-label="Left Align" data-toggle="collapse"
+											   aria-expanded="false">
+
+											</a>
+										</div>
+									</td>
+									<td style="text-align:center !important"></td>
+									<td style="text-align:center"></td>
+									<td style="text-align:center"></td>
+									<td style="text-align:center"></td>
+									<td style="text-align:center"></td>
+									<td style="text-align:center"></td>
+									<td style="text-align:center">
+										<button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="Imprimir Solicitud">
+											<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="Exportar">
+											<span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="Cambio Masivo">
+											<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="8" style="text-align:left;">
+										<!--Detalle para el alta de titular
+													<div class="collapse">
+
+														<div class="col-md-12 DetailTableHeader">
+															<div class="col-md-3">Producto</div>
+															<div class="col-md-4">Estado </div>
+														</div>
+														<div class="col-md-12" style="text-align:left;">
+															<div class="col-md-3"><i class="fab fa-cc-mastercard fa-1x"></i> <i class="fab fa-cc-visa fa-1x"></i> </div>
+															<div class="col-md-4"> </div>
+														</div>
+
+													</div>
+													<!--Detalle para el alta de adicional
+													<div class="collapse">
+														<div class="col-md-12 DetailTableHeader">
+															<div class="col-md-2">Documento</div>
+															<div class="col-md-2">Denominaci&oacute;n</div>
+															<div class="col-md-1">Cuenta</div>
+															<div class="col-md-4">Producto</div>
+															<div class="col-md-3">Estado </div>
+														</div>
+														<div class="col-md-12" style="text-align:left;">
+															<div class="col-md-2"></div>
+															<div class="col-md-2"></div>
+															<div class="col-md-1"></div>
+															<div class="col-md-4"><i class="fab fa-cc-mastercard fa-1x"></i> <i class="fab fa-cc-visa fa-1x"></i> </div>
+															<div class="col-md-3"></div>
+														</div>
+													</div>
+													</td>
+													</tr>
+													</tbody>
+													-->
+						</table>
+					</div>
+				</ng-container>
+				<div class="row" style="margin-left:0px;margin-right:0px;" *ngIf="bandera_grilla && !imagen_recarga">
+					<div class="col-md-12  footer-pagination">
+						<div class="col-md-3">
+							<h3 class="panel-title">
+								<span class="totalPlasticos">Plasctiso encontrados: {{modelGrilla?.cantidad_total_plasticos}}.</span>
+							</h3>
+						</div>
+						<div class="col-md-6">
+							<ul class="pagination" *ngIf="modelGrilla.solicitudes.length < modelGrilla?.cantidad_total_plasticos">
+								<li>
+									<a *ngIf="1 == modelConsulta?.paginacion?.pagina_actual"
+									   style="border: 1px solid #000; background-color: #61aba1;">
+										Primera
+									</a>
+									<a (click)="BuscarSolicitudes(1)"
+									   *ngIf="1 != modelConsulta?.paginacion?.pagina_actual">
+										Primera
+									</a>
+								</li>
+								<li *ngFor="let btn of modelConsulta?.paginacion?.botones">
+									<a *ngIf="btn == modelConsulta?.paginacion?.pagina_actual"
+									   style="border: 1px solid #000; background-color: #61aba1;">
+										{{btn}}
+									</a>
+									<a (click)="BuscarSolicitudes(btn)"
+									   *ngIf="btn != modelConsulta?.paginacion?.pagina_actual">
+										{{btn}}
+									</a>
+								</li>
+								<li>
+									<a *ngIf="modelConsulta?.paginacion?.cantidad_botones == modelConsulta?.paginacion?.pagina_actual"
+									   style="border: 1px solid #000; background-color: #61aba1;">
+										Ultima
+									</a>
+									<a (click)="BuscarSolicitudes(modelConsulta.paginacion.cantidad_botones)"
+									   *ngIf="modelConsulta?.paginacion?.cantidad_botones != modelConsulta?.paginacion?.pagina_actual">
+										Ultima
+									</a>
+								</li>
+
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<div class="form-inline">
+								<div class="form-group">
+									<span>Cantidad por Pagina: </span>
+									<input type="number" [(ngModel)]="modelConsulta.paginacion.registrosPorPagina" style="max-width:25%" class="form-control" maxlength="100" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

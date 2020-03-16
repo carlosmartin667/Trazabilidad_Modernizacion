@@ -1,0 +1,17 @@
+C:\RepoD\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\bin\Debug\Trazabilidad.Core.Domain.dll
+C:\RepoD\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\bin\Debug\Trazabilidad.Core.Domain.pdb
+C:\RepoD\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.csprojAssemblyReference.cache
+C:\RepoD\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.csproj.CoreCompileInputs.cache
+C:\RepoD\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.dll
+C:\RepoD\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.pdb
+C:\R\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\bin\Debug\Trazabilidad.Core.Domain.dll
+C:\R\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\bin\Debug\Trazabilidad.Core.Domain.pdb
+C:\R\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.csprojAssemblyReference.cache
+C:\R\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.csproj.CoreCompileInputs.cache
+C:\R\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.dll
+C:\R\Mantenimiento_2020\788_Trazabilidad\Desarrollo\trunk\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.pdb
+C:\Banco2\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\bin\Debug\Trazabilidad.Core.Domain.dll
+C:\Banco2\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\bin\Debug\Trazabilidad.Core.Domain.pdb
+C:\Banco2\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.csprojAssemblyReference.cache
+C:\Banco2\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.dll
+C:\Banco2\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.pdb

@@ -1,0 +1,60 @@
+﻿.sinpadding {
+    padding: 0;
+}
+
+.btn-select {
+    color: #545b62;
+    background-color: #fff;
+    border-color: #4e555b;
+    width: 100%;
+}
+
+.input-group-text {
+    font-size: 0.8rem;
+}
+
+table tr td {
+    border-top: 0px !important;
+}
+
+table tr th {
+    border-top: 0px !important;
+}
+
+h1 {
+    font-size: 14pt
+}
+
+.btn-aceptar {
+    color: rgb(255, 255, 255);
+    background-color: #007d57;
+    border-color: #007d57;
+}
+
+h5 i {
+    float: right;
+    margin-right: 1em;
+}
+
+.panel-header a:link {
+    text-decoration: none;
+}
+
+.panel-header a {
+    color: #FFF
+}
+
+.panel-header {
+    margin-top: -1px;
+    margin-left: -1px;
+    width: 100.2%;
+    background: linear-gradient(90deg, #007D57 0%, #49C5B6 100%);
+    font-size: 12pt;
+    font-weight: bold;
+    color: #FFFFFF !important;
+    border-radius: 5px 5px 0px 0px;
+    text-indent: 20px;
+    height: 38px;
+    padding-top: 10px;
+    ;
+}

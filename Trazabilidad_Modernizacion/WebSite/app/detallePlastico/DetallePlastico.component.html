@@ -1,0 +1,127 @@
+﻿
+
+<br />
+<br />
+<div align="center">
+    <h4 class="Titulo">Más informaci&oacute;n </h4>
+</div>
+
+<br />
+<br />
+<div class="panel panel-bancor">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <span>Datos de la Tarjeta</span>
+        </h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-3">
+            <label class="LabelTextBox">Numero de BP : </label>
+        </div>
+        <div class="col-md-3">
+            <input value="{{infoPlastico.Nro_BP}}" type="text" disabled />
+        </div>
+        <div class="col-md-3">
+            <label class="LabelTextBox">Centro de Embozado: </label>
+        </div>
+        <div class="col-md-3">
+            <input value="{{infoPlastico.Embozo_origen}}" type="text" disabled />
+        </div>
+    </div>
+    <hr />
+    <div class="col-md-12">
+        <div class="col-md-3">
+            <label class="LabelTextBox">Fecha Alta: </label>
+        </div>
+        <div class="col-md-3">
+            <input value="{{infoPlastico.FechaAltaPlastico}}" type="text" disabled />
+        </div>
+        <div class="col-md-3">
+            <label class="LabelTextBox">Suc. Radicacion: </label>
+        </div>
+        <div class="col-md-3">
+            <input value="{{infoPlastico.Suc_Radicacion}}" type="text" disabled />
+        </div>
+        <hr />
+        <div class="col-md-3">
+            <label class="LabelTextBox">Fecha Distr: </label>
+        </div>
+        <div class="col-md-3">
+            <input value="{{infoPlastico.FechaDistrib}}" type="text" disabled />
+        </div>
+        <div class="col-md-3">
+            <label class="LabelTextBox">CODIGO GAF - DESCRIPCION: </label>
+        </div>
+        <div class="col-md-3">
+            <input value="{{infoPlastico.GAF}}" type="text" disabled />
+        </div>
+    </div>
+</div>
+<br />
+<div *ngIf="infoPlastico.Nro_sol != 0 ">
+    <div class="panel panel-bancor">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <span>Datos de la Solicitud</span>
+            </h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="col-md-3">
+                <label class="LabelTextBox">Fecha Alta: </label>
+            </div>
+            <div class="col-md-3">
+                <input value="{{infoPlastico.SolicitudesViewModel.SolFecha}}" type="text" disabled />
+            </div>
+            <div class="col-md-3">
+                <label class="LabelTextBox">Numero Sol: </label>
+            </div>
+            <div class="col-md-3">
+                <input value="{{infoPlastico.Nro_sol}}" type="text" disabled />
+            </div>
+        </div>
+        <hr />
+        <div class="col-md-12">
+            <div class="col-md-3">
+                <label class="LabelTextBox">Tipo: </label>
+            </div>
+            <div class="col-md-3">
+                <input value="{{infoPlastico.TipoSolicitudesViewModel.tsoDescripcion}}" type="text" disabled />
+            </div>
+
+
+            <div class="col-md-3">
+                <label class="LabelTextBox">Grupo Cartera: </label>
+            </div>
+            <div class="col-md-3">
+                <input value="{{infoPlastico.SolicitudesViewModel.Cartera}}" type="text" disabled />
+            </div>
+            <hr />
+
+            <div class="col-md-3">
+                <label class="LabelTextBox">Mercado: </label>
+            </div>
+            <div class="col-md-3">
+                <input value="{{infoPlastico.SolicitudesViewModel.Mercado}}" type="text" disabled />
+            </div>
+            <div class="col-md-3">
+                <label class="LabelTextBox">Linea: </label>
+            </div>
+            <div class="col-md-3">
+                <input value="{{infoPlastico.SolicitudesViewModel.linea_cod}}" type="text" disabled />
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div align="center">
+    <button class="btn">Cerrar</button>
+</div>
+
+

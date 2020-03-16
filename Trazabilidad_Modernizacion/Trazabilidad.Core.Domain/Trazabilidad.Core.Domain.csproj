@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{036F5462-B081-4837-A193-CEB3D745F4A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Trazabilidad.Core.Domain</RootNamespace>
+    <AssemblyName>Trazabilidad.Core.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcusesADDOC.cs" />
+    <Compile Include="AcusesInventario_Temporal.cs" />
+    <Compile Include="Alertas.cs" />
+    <Compile Include="AlertasDestinos.cs" />
+    <Compile Include="AlertasPlastico.cs" />
+    <Compile Include="AlertasTiposEmail.cs" />
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="Canales.cs" />
+    <Compile Include="Conversiones.cs" />
+    <Compile Include="DistribucionConfig.cs" />
+    <Compile Include="Estados.cs" />
+    <Compile Include="Estados_Secuencia.cs" />
+    <Compile Include="GruposAfinidad.cs" />
+    <Compile Include="MarcasTC.cs" />
+    <Compile Include="Mensajes.cs" />
+    <Compile Include="ModalidadesEntregas.cs" />
+    <Compile Include="Plasticos.cs" />
+    <Compile Include="PlasticosPendientes_Temporal.cs" />
+    <Compile Include="ProductosTC.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecursosHumanos.cs" />
+    <Compile Include="Solicitudes.cs" />
+    <Compile Include="Solicitudes_Seguimiento.cs" />
+    <Compile Include="TipoAlertas.cs" />
+    <Compile Include="TipoSolicitudes.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

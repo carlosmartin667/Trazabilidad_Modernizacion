@@ -1,0 +1,12 @@
+﻿@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+	System.import('consultas').catch(function (err) { console.error(err); });
+</script>
+<div class="container-xl">
+	<consultas-component>
+		<div id="cover-spin"></div>
+	</consultas-component>
+</div>

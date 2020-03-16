@@ -1,0 +1,183 @@
+﻿<div class="seccion">
+    <div class="panel-group row" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-bancor">
+            <div class="panel-heading active" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <span>Filtros de B&uacute;squeda</span>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"></a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="divisor-bancor">
+                            <h4>Datos de la Tarjeta</h4>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class=" row col-md-3 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label class="LabelTextBox">numero acuse</label>
+                                    <input [(ngModel)]="PlasticoFiltros.BarCode_Pieza" id="numeroAcuse" type="number" class="input form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 hidden-sm hidden-xs">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label class="LabelTextBox">numero tarjeta</label>
+                                        <input [(ngModel)]="PlasticoFiltros.Plastico_nro" id="numeroTarjeta" type="number" class="input form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 hidden-sm hidden-xs">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label class="LabelTextBox">numero cuenta</label>
+                                        <input [(ngModel)]="PlasticoFiltros.Nro_Cuenta_Plastico" id="numeroCuenta" type="number" class="input form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 hidden-sm hidden-xs">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label class="LabelTextBox">numero de dni</label>
+                                        <input [(ngModel)]="PlasticoFiltros.Nro_doc" id="numeroDni" type="number" class="input form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <div class="form-group">
+                                    <label style="padding-left:10px;" class="LabelTextBox">estado</label>
+                                    <select [(ngModel)]="estado" class="select form-control" id="estadoSelect">
+                                        <option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+                                        <option *ngFor="let est of ListaEstados" [(ngValue)]="est">{{est.estDes}} </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <div class="form-group">
+                                    <label style="padding-left:10px;" class="LabelTextBox">Marca</label>
+                                    <select [(ngModel)]="marca" class="select form-control" id="marcaSelect" (change)="ObtenerProductosPorMarca()">
+                                        <option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+                                        <option *ngFor="let mar of ListaMarca" [ngValue]="mar">{{mar.concepto_descripcion}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <div class="form-group">
+                                    <label style="padding-left:10px;" class="LabelTextBox">producto</label>
+                                    <select [(ngModel)]="prdoucto" class="select form-control" id="productoSelect">
+                                        <option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+                                        <option *ngFor="let x of ListaProducto" [ngValue]="x">{{x.concepto_descripcion}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="button" value="Buscar" (click)="BuscarSolicitudes()"
+                                           [ngStyle]="{ 'cursor' : 'pointer' }"
+                                           class="Boton-lg" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-group row" id="accordion2" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-bancor">
+            <div class="panel-heading active" role="tab" id="heading2">
+                <h4 class="panel-title">
+                    <span>Resultados de la Búsqueda</span>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+                <ng-container>
+                    <div class="col-md-12 table-responsive">
+                        <table class="Tabla" id="resultadoTbl" style="margin-top:10px">
+                            <thead>
+                                <tr class="">
+                                    <th>Plásico</th>
+                                    <th>Suc</th>
+                                    <th>Apellido/Nombre</th>
+                                    <th>Documento</th>
+                                    <th>Cuenta</th>
+                                    <th>Producto</th>
+                                    <th>Fecha Estado</th>
+                                    <th>Estado</th>
+                                    <th>Mot Impr</th>
+                                    <th>Mod Entr</th>
+                                    <th>Canal Origen</th>
+                                    <th>Acuse</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let x of listaPlastico">
+                                    <td>{{x.Plastico_nro}}</td>
+                                    <td>{{x.Suc_Destino}}</td>
+                                    <td>{{x.Cliente_Razon}}</td>
+                                    <td>{{x.Nro_doc}}</td>
+                                    <td>{{x.Nro_Cuenta_Plastico}}</td>
+                                    <td>{{x.Producto_id}}</td>
+                                    <td>{{x.Estado_Fecha}}</td>
+                                    <td>{{x.Estado_id}}</td>
+                                    <td>{{Motivo_Impresion}}</td>
+                                    <td>{{x.Mod_Entrega}}</td>
+                                    <td>{{x.Canal_origen}}</td>
+                                    <td>{{x.BarCode_Pieza}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div *ngIf="cantidad ==0" class="alert alert-danger">
+                            No se encontro resultados
+                        </div>
+                        <br />
+                        <p *ngIf="cantidad !=0"> cantidad datos {{cantidad}}</p>
+                        <nav aria-label="Page navigation example" *ngIf="cantidad !=0">
+                            <ul class="pagination">
+                                <li *ngIf="PosicionActual != 1">
+                                    <button type="button" class="Boton" (click)="Paginador(1)"><<</button>
+                                </li>
+                                <li *ngIf="PosicionActual != 1">
+                                    <button type="button" class="Boton" (click)="Paginador(PosicionActual-1)"><</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="Boton" (click)="Paginador(radio-2)">{{radio-2}}</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="Boton" (click)="Paginador(radio-1)">{{radio -1}}</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="Boton" (click)="Paginador(radio)">{{radio}}</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="Boton" (click)="Paginador(radio+1)">{{radio+1}}</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="Boton" (click)="Paginador(radio+2)">{{radio+2}}</button>
+                                </li>
+
+                                <li *ngIf="PosicionActual != numeroPaginador">
+                                    <button type="button" class="Boton" (click)="Paginador(PosicionActual+1)">></button>
+                                </li>
+                                <li *ngIf="PosicionActual != numeroPaginador">
+                                    <button type="button" class="Boton" (click)="Paginador(numeroPaginador)">>></button>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div *ngIf="cantidad ==0">
+                            <button type="button" class="Boton" (click)="Paginador(1)">
+                                <span class="glyphicon glyphicon-repeat"></span>
+                                Recargar
+                            </button>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
