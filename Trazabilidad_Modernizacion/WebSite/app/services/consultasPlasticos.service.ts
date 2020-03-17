@@ -16,11 +16,11 @@ const _httpOptions = {
 export class ConsultasPlasticosServices {
     constructor(private _http: HttpClient) {
     }
-    GetListaPlastico(PaginaActual: number): Observable<HttpResponse<DetallePlasticoModel[]>> {
-        let consulta = Constantes.URL_OBTENER_SOLICITUDES_PLASTICOS;
-        return this._http.get<DetallePlasticoModel[]>(consulta, { observe: 'response' })
+    GetCantidadBotones(): Observable<HttpResponse<PaginadorModel>> {
+        let consulta = Constantes.URL_OBTENER_PAGINADOR_PLASTICOS;
+        return this._http.get<PaginadorModel>(consulta, { observe: 'response' })
             .pipe(
-                catchError((error: HttpErrorResponse) => {
+                catchError((error: HttpErrorResponse) => { 
                     console.log(error.message);
                     return throwError(error.message);
                 }))
@@ -37,7 +37,6 @@ export class ConsultasPlasticosServices {
                 }))
     };
 
-
     GetListaFiltrosPlasticos(PlasticoFiltros: DetallePlasticoModel): Observable<any> {
         var respuesta = new  Array<DetallePlasticoModel>() ;
         return this._http.post<any>(Constantes.URL_OBTENER_FILTROS_PLASTICOS, JSON.stringify(PlasticoFiltros), _httpOptions)
@@ -47,10 +46,6 @@ export class ConsultasPlasticosServices {
             )
         );
     };
-
-
-   
-
     EnviarParametroDeFiltroRecibirParametrosDeNegociosModelListFiltrada(PaginaActual: number): Observable<DetallePlasticoModel[]> {
         return this._http.post<any>(Constantes.URL_OBTENER_FILTROS_PLASTICOS, JSON.stringify(PaginaActual), _httpOptions);
     }

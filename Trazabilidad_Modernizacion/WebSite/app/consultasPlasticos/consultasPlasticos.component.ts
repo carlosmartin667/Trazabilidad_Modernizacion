@@ -27,7 +27,7 @@ export class ConsultasPlasticosComponent implements OnInit {
     public cantidad: number = 0;
     public concepto_descripcion: any;
     public paginadorModel: PaginadorModel;
-
+  
 
     public CantidadDeRegistros: number = 0;
     public numeroPaginador: number = 0;
@@ -44,6 +44,11 @@ export class ConsultasPlasticosComponent implements OnInit {
 
     }
     ngOnInit(): void {
+        this._consultasPlasticosServices.GetCantidadBotones().subscribe(x => {
+            this.paginadorModel = x.body;
+            this.numeroPaginador = this.paginadorModel.CantidadDeBotones;
+        });
+
         this._consultasPlasticosServices.GetListaPlasticos(this.PaginaActual).subscribe(x => {
             this.listaPlastico = x.body;
             this.cantidad = this.listaPlastico.length;
@@ -93,5 +98,9 @@ export class ConsultasPlasticosComponent implements OnInit {
         if (i <= this.numeroPaginador && i >= 1) {
             this.PosicionActual = i;
         }
+        this._consultasPlasticosServices.GetListaPlasticos(i).subscribe(x => {
+            this.listaPlastico = x.body;
+            this.cantidad = this.listaPlastico.length;
+        });
     }
 }

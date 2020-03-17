@@ -32,7 +32,7 @@ namespace WebSite.Controllers
         public JsonResult ObtenerListaPlastico(int PaginaActual)
         {
             //int PaginaActual = 1;
-            var infoPaginacion = ObtenerInfoPaginacion();
+            //var infoPaginacion = ObtenerInfoPaginacion();
             var resultado = plasticosRepository.Get().OrderBy(x => x.Reg_id)
                 .Skip((PaginaActual - 1) * 10)
                 .Take(10)
@@ -124,14 +124,13 @@ namespace WebSite.Controllers
         }
         public JsonResult ObtenerInfoPaginacion()
         {
-            List<InfoPaginacionViewModel> resultadoPaginador = new List<InfoPaginacionViewModel>();
+            InfoPaginacionViewModel resultadoPaginador = new InfoPaginacionViewModel();
             var cantidad = plasticosRepository.ObtenerTotalPlasticos();
-            resultadoPaginador.Add(new InfoPaginacionViewModel
-            {
-                PaginaActual = 1,
-                CantidadDeRegistros = cantidad,
-                CantidadDeBotones = (int)Math.Ceiling(cantidad / (double)10)
-            });
+            resultadoPaginador.PaginaActual = 1;
+            resultadoPaginador.CantidadDeRegistros = cantidad;
+            resultadoPaginador.CantidadDeBotones = (int)Math.Ceiling(cantidad / (double)10);
+
+           
             return Json(resultadoPaginador, JsonRequestBehavior.AllowGet);
         }
     }
