@@ -58,8 +58,10 @@ export class ConsultasPlasticosServices {
                     return throwError(error.message);
                 })) 
     };
-    GetListaComboProductos(): Observable<HttpResponse<Conversion[]>> {
-        let consulta = Constantes.URL_OBTENER_COMBOS_PLASTICOS_PRODUCTO;
+
+
+    GetListaComboProductos(codigo_ORIGEN:string): Observable<HttpResponse<Conversion[]>> {
+        let consulta = Constantes.URL_OBTENER_COMBOS_PLASTICOS_PRODUCTO + "?codigo_ORIGEN=" + codigo_ORIGEN;
         return this._http.get<Conversion[]>(consulta, { observe: 'response' })
             .pipe(
                 catchError((error: HttpErrorResponse) => {
@@ -67,6 +69,8 @@ export class ConsultasPlasticosServices {
                     return throwError(error.message);
                 }))
     };
+
+
     GetListaCombosEstados(): Observable<HttpResponse<Estado[]>> {
         let consulta = Constantes.URL_OBTENER_COMBOS_PLASTICOS_ESTADOS;
         return this._http.get<Estado[]>(consulta, { observe: 'response' })

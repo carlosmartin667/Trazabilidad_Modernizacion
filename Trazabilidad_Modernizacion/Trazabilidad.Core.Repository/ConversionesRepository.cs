@@ -37,9 +37,9 @@ namespace Trazabilidad.Core.Repository
             
         }
 
-        public List<Conversiones> ObtenerConversionProductos()
+        public List<Conversiones> ObtenerConversionProductos(string codigo_ORIGEN)
         {
-            var Productos = dbSet.Where(x => x.concepto_cod == "SUBPRODUCTOS_PIEZAS").ToList();
+            var Productos = dbSet.Where(x => x.concepto_cod == "SUBPRODUCTOS_PIEZAS" && x.codigo_ORIGEN ==codigo_ORIGEN).ToList();
             return Productos;
         }
 

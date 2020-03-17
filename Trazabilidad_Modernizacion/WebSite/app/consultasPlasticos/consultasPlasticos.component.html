@@ -44,11 +44,14 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-md-3 col-sm-3">
                                 <div class="form-group">
                                     <label style="padding-left:10px;" class="LabelTextBox">estado</label>
-                                    <select [(ngModel)]="estado" class="select form-control" id="estadoSelect">
-                                        <option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+                                    <select [(ngModel)]="estado" class="select form-control" id="estadoSelect"
+                                            ng-init="sortorder='publish_date'">
+
+                                        <option   value="publish_date"> -- Seleccionar -- </option>
                                         <option *ngFor="let est of ListaEstados" [(ngValue)]="est">{{est.estDes}} </option>
                                     </select>
                                 </div>

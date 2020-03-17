@@ -15,7 +15,7 @@ namespace Trazabilidad.Core.Interfaces
 		Conversiones ObtenerConversionCartera(Int32 grupo_cartera_cod);
 
 		List<Conversiones> ObtenerConversionMarcas();
-		List<Conversiones> ObtenerConversionProductos();
+		List<Conversiones> ObtenerConversionProductos(string codigo_ORIGEN);
 
 	}
 }

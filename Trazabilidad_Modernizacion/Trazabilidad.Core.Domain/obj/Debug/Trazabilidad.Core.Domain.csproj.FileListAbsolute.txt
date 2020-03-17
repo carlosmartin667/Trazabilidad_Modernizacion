@@ -15,3 +15,8 @@ C:\Banco2\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\bin\Debug\Trazabil
 C:\Banco2\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.csprojAssemblyReference.cache
 C:\Banco2\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.dll
 C:\Banco2\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.pdb
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\bin\Debug\Trazabilidad.Core.Domain.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\bin\Debug\Trazabilidad.Core.Domain.pdb
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.csprojAssemblyReference.cache
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.pdb

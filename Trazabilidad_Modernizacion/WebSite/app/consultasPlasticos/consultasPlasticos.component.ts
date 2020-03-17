@@ -27,7 +27,7 @@ export class ConsultasPlasticosComponent implements OnInit {
     public cantidad: number = 0;
     public concepto_descripcion: any;
     public paginadorModel: PaginadorModel;
-  
+
 
     public CantidadDeRegistros: number = 0;
     public numeroPaginador: number = 0;
@@ -56,9 +56,9 @@ export class ConsultasPlasticosComponent implements OnInit {
         this._consultasPlasticosServices.GetListaComboMarcas().subscribe(x => {
             this.ListaMarca = x.body;
         });
-        this._consultasPlasticosServices.GetListaComboProductos().subscribe(x => {
-            this.ListaProducto = x.body;
-        });
+        //this._consultasPlasticosServices.GetListaComboProductos().subscribe(x => {
+        //    this.ListaProducto = x.body;
+        //});
         this._consultasPlasticosServices.GetListaCombosEstados().subscribe(x => {
             this.ListaEstados = x.body;
         });
@@ -66,23 +66,36 @@ export class ConsultasPlasticosComponent implements OnInit {
     public test: any;
     ObtenerProductosPorMarca() {
         console.log(this.marca.codigo_ORIGEN);
-        for (var i = 0; i < this.ListaProducto.length; i++) {
-            if (this.marca.codigo_ORIGEN === this.ListaProducto[i].codigo_ORIGEN) {
-                console.log(this.ListaProducto[i]);
-                this.test = this.ListaProducto[i];
-            }
-        }
-        console.log(this.productoLis);
-        console.log(this.test);
+        this._consultasPlasticosServices.GetListaComboProductos(this.marca.codigo_ORIGEN).subscribe(x => {
+           
+               
+                    this.ListaProducto = x.body;
+           
+
+        });
+
+        //for (var i = 0; i < this.ListaProducto.length; i++) {
+
+        //    if ( === this.ListaProducto[i].codigo_ORIGEN) {
+        //        console.log(this.ListaProducto[i]);
+        //        this.test = this.ListaProducto[i];
+        //    }
+        //}
+        //console.log(this.productoLis);
+        //console.log(this.test);
     }
     BuscarSolicitudes() {
         this.PlasticoFiltros.Estado_id = parseInt(this.estado.estId);
         this.PlasticoFiltros.Producto_id = parseInt(this.marca.codigo_DESTINO);
         this.PlasticoFiltros.SubProducto_id = this.prdoucto.codigo_DESTINO;
         console.log(this.PlasticoFiltros);
+
+
+
         this._consultasPlasticosServices.GetListaFiltrosPlasticos(this.PlasticoFiltros)
             .subscribe(x => {
                 console.log(this.listaPlastico = x)
+                this.cantidad = this.listaPlastico.length;
             });
     }
     Paginador(i: number) {

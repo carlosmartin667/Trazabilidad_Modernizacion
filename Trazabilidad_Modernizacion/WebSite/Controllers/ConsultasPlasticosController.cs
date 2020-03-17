@@ -45,9 +45,9 @@ namespace WebSite.Controllers
 
             return Json(resultadoCombosPlasticoMarca, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult CombosPlasticoProducto()
+        public JsonResult CombosPlasticoProducto(string codigo_ORIGEN)
         {
-            var resultadoCombosPlasticoProducto = conversionRepository.ObtenerConversionProductos();
+            var resultadoCombosPlasticoProducto = conversionRepository.ObtenerConversionProductos(codigo_ORIGEN);
 
             return Json(resultadoCombosPlasticoProducto, JsonRequestBehavior.AllowGet);
         }
