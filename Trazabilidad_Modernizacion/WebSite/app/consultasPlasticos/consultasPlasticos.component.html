@@ -60,7 +60,8 @@
                                 <div class="form-group">
                                     <label style="padding-left:10px;" class="LabelTextBox">Marca</label>
                                     <select [(ngModel)]="marca" class="select form-control" id="marcaSelect" (change)="ObtenerProductosPorMarca()">
-                                        <option [ngValue]="undefined" selected> -- Seleccionar -- </option>
+                                       
+                                        <option   class="selected" selected > -- Seleccionar -- </option>
                                         <option *ngFor="let mar of ListaMarca" [ngValue]="mar">{{mar.concepto_descripcion}}</option>
                                     </select>
                                 </div>
@@ -82,7 +83,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <h4>{{mensaje}}</h4>
                     </div>
                 </div>
             </div>

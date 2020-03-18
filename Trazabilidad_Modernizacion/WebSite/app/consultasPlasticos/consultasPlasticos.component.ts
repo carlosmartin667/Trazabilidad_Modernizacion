@@ -49,7 +49,7 @@ export class ConsultasPlasticosComponent implements OnInit {
             this.numeroPaginador = this.paginadorModel.CantidadDeBotones;
         });
 
-        this._consultasPlasticosServices.GetListaPlasticos(this.PaginaActual).subscribe(x => {
+        this._consultasPlasticosServices.GetListaPlasticos(1).subscribe(x => {
             this.listaPlastico = x.body;
             this.cantidad = this.listaPlastico.length;
         });
@@ -67,10 +67,10 @@ export class ConsultasPlasticosComponent implements OnInit {
     ObtenerProductosPorMarca() {
         console.log(this.marca.codigo_ORIGEN);
         this._consultasPlasticosServices.GetListaComboProductos(this.marca.codigo_ORIGEN).subscribe(x => {
-           
-               
-                    this.ListaProducto = x.body;
-           
+
+
+            this.ListaProducto = x.body;
+
 
         });
 
@@ -84,19 +84,35 @@ export class ConsultasPlasticosComponent implements OnInit {
         //console.log(this.productoLis);
         //console.log(this.test);
     }
+    public mensaje: string = "";
     BuscarSolicitudes() {
         this.PlasticoFiltros.Estado_id = parseInt(this.estado.estId);
         this.PlasticoFiltros.Producto_id = parseInt(this.marca.codigo_DESTINO);
         this.PlasticoFiltros.SubProducto_id = this.prdoucto.codigo_DESTINO;
-        console.log(this.PlasticoFiltros);
+
+
+        if (this.PlasticoFiltros.Estado_id > 0
+            || this.PlasticoFiltros.Producto_id > 0
+            //|| this.PlasticoFiltros.SubProducto_id != ""
+            //|| this.PlasticoFiltros.BarCode_Pieza != ""
+            || this.PlasticoFiltros.Plastico_nro > 0
+            || this.PlasticoFiltros.Nro_Cuenta_Plastico > 0
+            || this.PlasticoFiltros.Nro_doc > 0
+        ) {
+
+            this._consultasPlasticosServices.GetListaFiltrosPlasticos(this.PlasticoFiltros)
+                .subscribe(x => {
+                    console.log(this.listaPlastico = x)
+                    this.cantidad = this.listaPlastico.length;
+                });
+        }
+        else {
+            this.mensaje = "deve llenar un campo como minimo "
+        }
 
 
 
-        this._consultasPlasticosServices.GetListaFiltrosPlasticos(this.PlasticoFiltros)
-            .subscribe(x => {
-                console.log(this.listaPlastico = x)
-                this.cantidad = this.listaPlastico.length;
-            });
+
     }
     Paginador(i: number) {
         if (i > 2 && i < this.numeroPaginador - 1) {
