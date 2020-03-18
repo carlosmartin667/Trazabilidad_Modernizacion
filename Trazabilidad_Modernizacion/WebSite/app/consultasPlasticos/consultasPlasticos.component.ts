@@ -99,7 +99,7 @@ export class ConsultasPlasticosComponent implements OnInit {
             || this.PlasticoFiltros.Nro_Cuenta_Plastico > 0
             || this.PlasticoFiltros.Nro_doc > 0
         ) {
-
+            this.mensaje = "";
             this._consultasPlasticosServices.GetListaFiltrosPlasticos(this.PlasticoFiltros)
                 .subscribe(x => {
                     console.log(this.listaPlastico = x)
@@ -107,7 +107,7 @@ export class ConsultasPlasticosComponent implements OnInit {
                 });
         }
         else {
-            this.mensaje = "deve llenar un campo como minimo "
+            this.mensaje = "debe llenar un campo como minimo "
         }
 
 

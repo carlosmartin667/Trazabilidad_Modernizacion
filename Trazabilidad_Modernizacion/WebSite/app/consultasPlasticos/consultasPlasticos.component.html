@@ -14,13 +14,13 @@
                             <h4>Datos de la Tarjeta</h4>
                         </div>
                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                            <div class=" row col-md-3 col-sm-12 col-xs-12">
+                            <div class="col-md-3 col-sm-3">
                                 <div class="form-group">
-                                    <label class="LabelTextBox">numero acuse</label>
+                                    <label style="padding-left:10px;" class="LabelTextBox">numero acuse</label>
                                     <input [(ngModel)]="PlasticoFiltros.BarCode_Pieza" id="numeroAcuse" type="number" class="input form-control" />
                                 </div>
                             </div>
-                            <div class="col-md-3 hidden-sm hidden-xs">
+                            <div class="col-md-3 col-sm-3">
                                 <div class="form-group">
                                     <div class="form-group">
                                         <label class="LabelTextBox">numero tarjeta</label>
@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 hidden-sm hidden-xs">
+                            <div class="col-md-3 col-sm-3">
                                 <div class="form-group">
                                     <div class="form-group">
                                         <label class="LabelTextBox">numero cuenta</label>
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 hidden-sm hidden-xs">
+                            <div class="col-md-3 col-sm-3">
                                 <div class="form-group">
                                     <div class="form-group">
                                         <label class="LabelTextBox">numero de dni</label>
@@ -51,7 +51,7 @@
                                     <select [(ngModel)]="estado" class="select form-control" id="estadoSelect"
                                             ng-init="sortorder='publish_date'">
 
-                                        <option   value="publish_date"> -- Seleccionar -- </option>
+                                        <option value="publish_date"> -- Seleccionar -- </option>
                                         <option *ngFor="let est of ListaEstados" [(ngValue)]="est">{{est.estDes}} </option>
                                     </select>
                                 </div>
@@ -60,8 +60,8 @@
                                 <div class="form-group">
                                     <label style="padding-left:10px;" class="LabelTextBox">Marca</label>
                                     <select [(ngModel)]="marca" class="select form-control" id="marcaSelect" (change)="ObtenerProductosPorMarca()">
-                                       
-                                        <option   class="selected" selected > -- Seleccionar -- </option>
+
+                                        <option class="selected" selected> -- Seleccionar -- </option>
                                         <option *ngFor="let mar of ListaMarca" [ngValue]="mar">{{mar.concepto_descripcion}}</option>
                                     </select>
                                 </div>
@@ -83,7 +83,9 @@
                                 </div>
                             </div>
                         </div>
-                        <h4>{{mensaje}}</h4>
+                        <div class="col-md-3 col-sm-3">
+                            <h5>{{mensaje}}</h5>
+                        </div>
                     </div>
                 </div>
             </div>
