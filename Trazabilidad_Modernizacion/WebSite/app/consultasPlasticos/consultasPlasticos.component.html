@@ -119,6 +119,7 @@
                                     <th>Mod Entr</th>
                                     <th>Canal Origen</th>
                                     <th>Acuse</th>
+                                    <th> Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -129,12 +130,17 @@
                                     <td>{{x.Nro_doc}}</td>
                                     <td>{{x.Nro_Cuenta_Plastico}}</td>
                                     <td>{{x.Producto_id}}</td>
-                                    <td>{{x.Estado_Fecha}}</td>
+                                    <td>{{x.EstadoFecha | date : 'dd/MM/yyyy'}}</td>
                                     <td>{{x.Estado_id}}</td>
                                     <td>{{Motivo_Impresion}}</td>
                                     <td>{{x.Mod_Entrega}}</td>
                                     <td>{{x.Canal_origen}}</td>
                                     <td>{{x.BarCode_Pieza}}</td>
+                                    <td style="text-align:center">
+                                        <button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="Imprimir Solicitud">
+                                            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

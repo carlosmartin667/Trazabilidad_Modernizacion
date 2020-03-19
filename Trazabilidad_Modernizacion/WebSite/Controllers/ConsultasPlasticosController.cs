@@ -31,13 +31,36 @@ namespace WebSite.Controllers
         }
         public JsonResult ObtenerListaPlastico(int PaginaActual)
         {
+            List<PlasticoViewModel> res = new List<PlasticoViewModel>();
             //int PaginaActual = 1;
             //var infoPaginacion = ObtenerInfoPaginacion();
             var resultado = plasticosRepository.Get().OrderBy(x => x.Reg_id)
                 .Skip((PaginaActual - 1) * 10)
                 .Take(10)
                 .ToList();
-            return Json(resultado, JsonRequestBehavior.AllowGet);
+
+            foreach (var item in resultado)
+            {
+                PlasticoViewModel plastico = new PlasticoViewModel();
+                plastico.BarCode_Pieza = item.BarCode_Pieza;
+                plastico.Plastico_nro = item.Plastico_nro;
+                plastico.Suc_Destino = item.Suc_Destino;
+                plastico.Cliente_Razon = item.Cliente_Razon;
+                plastico.Nro_doc = item.Nro_doc;
+                plastico.Nro_Cuenta_Plastico = item.Nro_Cuenta_Plastico;
+                plastico.Producto_id = item.Producto_id;
+                plastico.EstadoFecha = item.Estado_Fecha.ToString("MMddyyyy"); ;
+                plastico.Estado_id = item.Estado_id;
+                plastico.Motivo_Impresion = item.Motivo_Impresion;
+                plastico.Mod_Entrega = item.Mod_Entrega;
+                plastico.Canal_origen = item.Canal_origen;
+                plastico.BarCode_Pieza = item.BarCode_Pieza;
+                res.Add(plastico);
+            }
+
+
+
+            return Json(res, JsonRequestBehavior.AllowGet);
         }
         public JsonResult CombosPlasticoMarca()
         {
@@ -103,7 +126,7 @@ namespace WebSite.Controllers
                     plastico.Nro_doc = item.Nro_doc;
                     plastico.Nro_Cuenta_Plastico = item.Nro_Cuenta_Plastico;
                     plastico.Producto_id = item.Producto_id;
-                    plastico.Estado_Fecha = item.Estado_Fecha;
+                    plastico.EstadoFecha = item.Estado_Fecha.ToString("MMddyyyy"); ;
                     plastico.Estado_id = item.Estado_id;
                     plastico.Motivo_Impresion = item.Motivo_Impresion;
                     plastico.Mod_Entrega = item.Mod_Entrega;
@@ -122,16 +145,6 @@ namespace WebSite.Controllers
 
 
         }
-        public JsonResult ObtenerInfoPaginacion()
-        {
-            InfoPaginacionViewModel resultadoPaginador = new InfoPaginacionViewModel();
-            var cantidad = plasticosRepository.ObtenerTotalPlasticos();
-            resultadoPaginador.PaginaActual = 1;
-            resultadoPaginador.CantidadDeRegistros = cantidad;
-            resultadoPaginador.CantidadDeBotones = (int)Math.Ceiling(cantidad / (double)10);
-
-           
-            return Json(resultadoPaginador, JsonRequestBehavior.AllowGet);
-        }
+       
     }
 }

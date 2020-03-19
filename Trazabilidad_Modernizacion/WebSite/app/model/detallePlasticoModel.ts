@@ -34,9 +34,10 @@ export class DetallePlasticoModel {
     public Fecha_Distrib: number;
     public GAF: number;
     public Nro_sol: number;
-    public Estado_Fecha: string;
+    public Estado_Fecha: number;
     public Suc_Destino: number;
     public Unid_Org_Id: number;
     public SolicitudesViewModel: SolicitudesModel;
     public TipoSolicitudesViewModel: TipoSolicitudesmodel;
+    public EstadoFecha: string;
 }

@@ -15,7 +15,7 @@ namespace WebSite.ViewModel
 
         public string FechaDistrib { get; set; }
         public string FechaAltaPlastico { get; set; }
-
+        public string EstadoFecha { get; set; }
 
         public decimal Reg_id { get; set; }
         public decimal Nro_BP { get; set; }
