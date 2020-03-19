@@ -145,6 +145,17 @@ namespace WebSite.Controllers
 
 
         }
-       
+        public JsonResult ObtenerInfoPaginacion()
+        {
+            InfoPaginacionViewModel resultadoPaginador = new InfoPaginacionViewModel();
+            var cantidad = plasticosRepository.ObtenerTotalPlasticos();
+            resultadoPaginador.PaginaActual = 1;
+            resultadoPaginador.CantidadDeRegistros = cantidad;
+            resultadoPaginador.CantidadDeBotones = (int)Math.Ceiling(cantidad / (double)10);
+
+
+            return Json(resultadoPaginador, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

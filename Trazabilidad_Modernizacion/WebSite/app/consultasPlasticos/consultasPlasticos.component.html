@@ -83,8 +83,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-3">
-                            <h5>{{mensaje}}</h5>
+                        <div *ngIf="filtros ==false" class="col-md-4 col-sm-4">
+                            <div class="alert alert-danger">
+                                <h5>{{mensaje}}</h5>
+                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -120,6 +123,7 @@
                                     <th>Canal Origen</th>
                                     <th>Acuse</th>
                                     <th> Acciones</th>
+                                    <th>Seleccionar</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -137,10 +141,17 @@
                                     <td>{{x.Canal_origen}}</td>
                                     <td>{{x.BarCode_Pieza}}</td>
                                     <td style="text-align:center">
-                                        <a href="../detallePlastico?IdPlastico=x.Plastico_nro" class="btn btn-default btn-sm" aria-label="Left Align" title="Imprimir Solicitud"
-                                                >
+                                        <a href="../detallePlastico?IdPlastico=x.Plastico_nro" class="btn btn-default btn-sm" aria-label="Left Align" title="Imprimir Solicitud">
                                             <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
                                         </a>
+                                        <button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="Exportar">
+                                            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

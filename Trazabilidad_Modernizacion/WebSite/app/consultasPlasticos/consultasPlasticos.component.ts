@@ -28,6 +28,7 @@ export class ConsultasPlasticosComponent implements OnInit {
     public concepto_descripcion: any;
     public paginadorModel: PaginadorModel;
 
+    public filtros: boolean = true;
 
     public CantidadDeRegistros: number = 0;
     public numeroPaginador: number = 0;
@@ -99,6 +100,7 @@ export class ConsultasPlasticosComponent implements OnInit {
             || this.PlasticoFiltros.Nro_Cuenta_Plastico > 0
             || this.PlasticoFiltros.Nro_doc > 0
         ) {
+            this.filtros = true;
             this.mensaje = "";
             this._consultasPlasticosServices.GetListaFiltrosPlasticos(this.PlasticoFiltros)
                 .subscribe(x => {
@@ -107,6 +109,7 @@ export class ConsultasPlasticosComponent implements OnInit {
                 });
         }
         else {
+            this.filtros = false;
             this.mensaje = "debe llenar un campo como minimo "
         }
 
