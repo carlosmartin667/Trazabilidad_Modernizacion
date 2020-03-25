@@ -36,16 +36,23 @@ namespace WebSite.Controllers
         }
         public static string f1 = "";
 
-        public JsonResult ObtenerDetallesplastico(int IdPlastico)
+        public JsonResult ObtenerDetallesplastico(string IdPlastico)
         {
             try
             {
+
+             
                 //IdPlastico = 102409331;
                 //var resultadoSolicitud = new List<Solicitudes>();
-                var resultadoPlastico = plasticosRepository.ObtenerPlastico(IdPlastico, "");
+                var resultadoPlastico = plasticosRepository.ObtenerPlastico(Convert.ToInt32( IdPlastico), "");
 
 
-                decimal solicitud = (decimal)resultadoPlastico.Nro_sol;
+                decimal solicitud;
+                if (resultadoPlastico.Nro_sol == null)
+                    solicitud = 0;
+                else
+                    solicitud = (decimal)resultadoPlastico.Nro_sol;
+
                 var plastico = new PlasticoViewModel();
                 plastico.GAF = resultadoPlastico.GAF;
 

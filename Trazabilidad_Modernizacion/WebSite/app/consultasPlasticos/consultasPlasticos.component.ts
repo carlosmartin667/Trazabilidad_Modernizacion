@@ -47,6 +47,7 @@ export class ConsultasPlasticosComponent implements OnInit {
     ngOnInit(): void {
         this._consultasPlasticosServices.GetCantidadBotones().subscribe(x => {
             this.paginadorModel = x.body;
+        
             this.numeroPaginador = this.paginadorModel.CantidadDeBotones;
         });
 

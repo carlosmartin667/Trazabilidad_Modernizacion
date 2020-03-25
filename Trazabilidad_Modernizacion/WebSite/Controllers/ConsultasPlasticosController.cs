@@ -55,6 +55,7 @@ namespace WebSite.Controllers
                 plastico.Mod_Entrega = item.Mod_Entrega;
                 plastico.Canal_origen = item.Canal_origen;
                 plastico.BarCode_Pieza = item.BarCode_Pieza;
+                plastico.Reg_id = item.Reg_id;
                 res.Add(plastico);
             }
 

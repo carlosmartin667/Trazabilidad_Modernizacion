@@ -15,7 +15,7 @@ export class DetallePlasticoService {
     }
 
 
-    GetInfoPlastico(IdPlastico: number): Observable<HttpResponse<DetallePlasticoModel>> {
+    GetInfoPlastico(IdPlastico: string): Observable<HttpResponse<DetallePlasticoModel>> {
         let consulta = Constantes.URL_OBTENER_DETALLES_PLASTICOS + "?IdPlastico=" + IdPlastico;
         return this._http.get<DetallePlasticoModel>(consulta, { observe: 'response' })
             .pipe(

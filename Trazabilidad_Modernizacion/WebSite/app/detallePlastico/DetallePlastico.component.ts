@@ -16,20 +16,22 @@ export class DetallePlasticoComponent implements OnInit {
     public msg: string;
     constructor(private _DetallePlasticoService: DetallePlasticoService
         //private rutaActiva: ActivatedRoute
-     
+   
     ) {
-     
+
+        this.infoPlastico = new DetallePlasticoModel();
         const urlParams = new URLSearchParams(window.location.search.toLowerCase());
-        this.idPlastico = urlParams.get('?IdPlastico');
+        this.idPlastico = urlParams.get('idplastico');
     }
 
     public Plastico_nro: number;
-    public plastico: number = 102409331;
+    //public plastico: number = parseInt(this.idPlastico);
     public infoPlastico: DetallePlasticoModel;
     ngOnInit() {
-
-       //console.log(  this.rutaActiva.snapshot.paramMap);
-        this._DetallePlasticoService.GetInfoPlastico(this.plastico).subscribe(x => {
+        console.log(window.location.search.toLowerCase());
+        console.log(this.idPlastico);
+        //console.log(this.plastico);
+        this._DetallePlasticoService.GetInfoPlastico(this.idPlastico).subscribe(x => {
             this.infoPlastico = x.body;
            
         });
