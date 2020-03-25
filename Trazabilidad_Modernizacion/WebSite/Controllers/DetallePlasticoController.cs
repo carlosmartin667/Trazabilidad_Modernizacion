@@ -41,10 +41,10 @@ namespace WebSite.Controllers
             try
             {
 
-             
+
                 //IdPlastico = 102409331;
                 //var resultadoSolicitud = new List<Solicitudes>();
-                var resultadoPlastico = plasticosRepository.ObtenerPlastico(Convert.ToInt32( IdPlastico), "");
+                var resultadoPlastico = plasticosRepository.ObtenerPlastico(Convert.ToInt32(IdPlastico), "");
 
 
                 decimal solicitud;
@@ -56,24 +56,40 @@ namespace WebSite.Controllers
                 var plastico = new PlasticoViewModel();
                 plastico.GAF = resultadoPlastico.GAF;
 
-                DevolverFormatoFecha((decimal)resultadoPlastico.Fecha_Distrib);
-                plastico.FechaDistrib = f1;
+                if (resultadoPlastico.Fecha_Distrib== null)
+                {
+                    plastico.FechaDistrib = "sin datos";
+                }
+                else
+                {
+                    DevolverFormatoFecha((decimal)resultadoPlastico.Fecha_Distrib);
+                    plastico.FechaDistrib = f1;
+                }
+            
 
                 plastico.Suc_Radicacion = resultadoPlastico.Suc_Radicacion;
 
-                DevolverFormatoFecha(resultadoPlastico.Fecha_Alta_Plastico);
-                plastico.FechaAltaPlastico = f1;
+                if (resultadoPlastico.Fecha_Alta_Plastico == null)
+                {
+                    plastico.FechaAltaPlastico = "sin datos";
+                }
+                else
+                {
+                    DevolverFormatoFecha(resultadoPlastico.Fecha_Alta_Plastico);
+                    plastico.FechaAltaPlastico = f1;
+
+                }
 
                 plastico.Embozo_origen = resultadoPlastico.Embozo_origen;
                 plastico.Nro_BP = resultadoPlastico.Nro_BP;
                 plastico.Nro_sol = resultadoPlastico.Nro_sol;
-                if (solicitud!=0)
+                if (solicitud != 0)
                 {
                     var resultadoSolicitud = solicitudesRepository.ObtenerSolicitud(solicitud);
                     var cartera = resultadoSolicitud.grupo_cartera_cod;
                     var resultadoCartera = conversionRepository.ObtenerConversionCartera((int)cartera);
                     var resultadoMercado = conversionRepository.ObtenerConversionMercado((int)resultadoSolicitud.mer_id);
-                      decimal tsoId = (decimal)resultadoSolicitud.tsoId;
+                    decimal tsoId = (decimal)resultadoSolicitud.tsoId;
                     var resultadoTipoSolicitud = tipoSolicitudesRepository.ObtenerTipoSolicitudes(tsoId);
                     string fecha = resultadoSolicitud.solFecha.Value.ToString("dd/MM/yyyy");
                     plastico.SolicitudesViewModel.SolFecha = fecha;
@@ -82,9 +98,9 @@ namespace WebSite.Controllers
                     plastico.SolicitudesViewModel.Mercado = resultadoMercado.concepto_descripcion;
                     plastico.SolicitudesViewModel.Cartera = resultadoCartera.concepto_descripcion;
                     plastico.TipoSolicitudesViewModel.tsoDescripcion = resultadoTipoSolicitud.tsoDescripcion;
-                } 
+                }
 
-            
+
 
                 return Json(plastico, JsonRequestBehavior.AllowGet);
 
@@ -102,7 +118,15 @@ namespace WebSite.Controllers
         public string DevolverFormatoFecha(decimal Fecha)
         {
 
-            var fecha1 = Convert.ToString(Fecha);
+            string fecha1 = "";
+            if (Fecha == null)
+            {
+                f1 = "sin datos";
+                return f1;
+            }
+            else
+                fecha1 = Convert.ToString(Fecha);
+
             var año = fecha1.Substring(0, 4);
             var mes = fecha1.Substring(4, 2);
             var dias = fecha1.Substring(6, 2);
