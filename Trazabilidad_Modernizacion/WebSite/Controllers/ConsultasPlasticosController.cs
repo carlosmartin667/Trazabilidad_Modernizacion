@@ -32,8 +32,7 @@ namespace WebSite.Controllers
         public JsonResult ObtenerListaPlastico(int PaginaActual)
         {
             List<PlasticoViewModel> res = new List<PlasticoViewModel>();
-            //int PaginaActual = 1;
-            //var infoPaginacion = ObtenerInfoPaginacion();
+         
             var resultado = plasticosRepository.Get().OrderBy(x => x.Reg_id)
                 .Skip((PaginaActual - 1) * 10)
                 .Take(10)

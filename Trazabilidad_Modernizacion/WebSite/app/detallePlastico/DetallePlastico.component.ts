@@ -28,9 +28,6 @@ export class DetallePlasticoComponent implements OnInit {
     //public plastico: number = parseInt(this.idPlastico);
     public infoPlastico: DetallePlasticoModel;
     ngOnInit() {
-        console.log(window.location.search.toLowerCase());
-        console.log(this.idPlastico);
-        //console.log(this.plastico);
         this._DetallePlasticoService.GetInfoPlastico(this.idPlastico).subscribe(x => {
             this.infoPlastico = x.body;
            
