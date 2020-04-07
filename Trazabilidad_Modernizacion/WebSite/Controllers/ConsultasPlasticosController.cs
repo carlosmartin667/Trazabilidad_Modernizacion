@@ -31,36 +31,45 @@ namespace WebSite.Controllers
         }
         public JsonResult ObtenerListaPlastico(int PaginaActual)
         {
-            List<PlasticoViewModel> res = new List<PlasticoViewModel>();
-         
-            var resultado = plasticosRepository.Get().OrderBy(x => x.Reg_id)
-                .Skip((PaginaActual - 1) * 10)
-                .Take(10)
-                .ToList();
-
-            foreach (var item in resultado)
+            try
             {
-                PlasticoViewModel plastico = new PlasticoViewModel();
-                plastico.BarCode_Pieza = item.BarCode_Pieza;
-                plastico.Plastico_nro = item.Plastico_nro;
-                plastico.Suc_Destino = item.Suc_Destino;
-                plastico.Cliente_Razon = item.Cliente_Razon;
-                plastico.Nro_doc = item.Nro_doc;
-                plastico.Nro_Cuenta_Plastico = item.Nro_Cuenta_Plastico;
-                plastico.Producto_id = item.Producto_id;
-                plastico.EstadoFecha = item.Estado_Fecha.ToString("MMddyyyy"); ;
-                plastico.Estado_id = item.Estado_id;
-                plastico.Motivo_Impresion = item.Motivo_Impresion;
-                plastico.Mod_Entrega = item.Mod_Entrega;
-                plastico.Canal_origen = item.Canal_origen;
-                plastico.BarCode_Pieza = item.BarCode_Pieza;
-                plastico.Reg_id = item.Reg_id;
-                res.Add(plastico);
+                List<PlasticoViewModel> res = new List<PlasticoViewModel>();
+
+                var resultado = plasticosRepository.Get().OrderBy(x => x.Reg_id)
+                    .Skip((PaginaActual - 1) * 10)
+                    .Take(10)
+                    .ToList();
+
+                foreach (var item in resultado)
+                {
+                    PlasticoViewModel plastico = new PlasticoViewModel();
+                    plastico.BarCode_Pieza = item.BarCode_Pieza;
+                    plastico.Plastico_nro = item.Plastico_nro;
+                    plastico.Suc_Destino = item.Suc_Destino;
+                    plastico.Cliente_Razon = item.Cliente_Razon;
+                    plastico.Nro_doc = item.Nro_doc;
+                    plastico.Nro_Cuenta_Plastico = item.Nro_Cuenta_Plastico;
+                    plastico.Producto_id = item.Producto_id;
+                    plastico.EstadoFecha = item.Estado_Fecha.ToString("MMddyyyy"); ;
+                    plastico.Estado_id = item.Estado_id;
+                    plastico.Motivo_Impresion = item.Motivo_Impresion;
+                    plastico.Mod_Entrega = item.Mod_Entrega;
+                    plastico.Canal_origen = item.Canal_origen;
+                    plastico.BarCode_Pieza = item.BarCode_Pieza;
+                    plastico.Reg_id = item.Reg_id;
+                    res.Add(plastico);
+                }
+
+
+
+                return Json(res, JsonRequestBehavior.AllowGet);
             }
+            catch (Exception ex)
+            {
 
-
-
-            return Json(res, JsonRequestBehavior.AllowGet);
+                throw;
+            }
+          
         }
         public JsonResult CombosPlasticoMarca()
         {

@@ -92,7 +92,7 @@ export class ConsultasPlasticosComponent implements OnInit {
         }
         else {
             this.filtros = false;
-            this.mensaje = "debe llenar un campo como minimo "
+            this.mensaje = "Debe llenar un campo como minimo "
         }
     }
 

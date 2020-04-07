@@ -18,7 +18,7 @@ namespace Trazabilidad.Core.Repository
             if (IdPlastico == 0)
                 throw new ArgumentException("Se debe proporcionar un Id de Plastico");
 
-            var plastico = dbSet.FirstOrDefault(x => x.Reg_id == IdPlastico);
+           var plastico = dbSet.FirstOrDefault(x => x.Reg_id == IdPlastico);
             
             //Plasticos plastico = Get(x => x.Reg_id == IdPlastico, IncludeProperties).FirstOrDefault();
 

@@ -69,7 +69,7 @@ namespace WebSite.Controllers
 
                 plastico.Suc_Radicacion = resultadoPlastico.Suc_Radicacion;
 
-                if (resultadoPlastico.Fecha_Alta_Plastico == null)
+                if (resultadoPlastico.Fecha_Alta_Plastico == 0)
                 {
                     plastico.FechaAltaPlastico = "sin datos";
                 }
@@ -82,7 +82,9 @@ namespace WebSite.Controllers
 
                 plastico.Embozo_origen = resultadoPlastico.Embozo_origen;
                 plastico.Nro_BP = resultadoPlastico.Nro_BP;
+
                 plastico.Nro_sol = resultadoPlastico.Nro_sol;
+
                 if (solicitud != 0)
                 {
                     var resultadoSolicitud = solicitudesRepository.ObtenerSolicitud(solicitud);
