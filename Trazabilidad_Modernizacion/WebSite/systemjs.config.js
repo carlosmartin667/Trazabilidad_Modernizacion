@@ -54,6 +54,10 @@
             consultasPlasticos: {
                 main: '../app/consultasPlasticos/consultasPlasticos.main.js', defaultExtension: 'js'
             },
+
+            seguimiento: {
+                main: '../app/seguimiento/seguimiento.main.js', defaultExtension: 'js'
+            },
             'ng2-bootstrap-modal': {
                 main: 'index.js',
                 defaultExtension: 'js'

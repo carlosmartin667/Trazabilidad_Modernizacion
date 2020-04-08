@@ -1,0 +1,1 @@
+{"version":3,"file":"seguimiento.service.js","sourceRoot":"","sources":["seguimiento.service.ts"],"names":[],"mappings":";;;;;;;;AAAA,sCAA2C;AAC3C,6CAAmD;AAEnD,IAAM,YAAY,GAAG;IACjB,OAAO,EAAE,IAAI,kBAAW,CAAC,EAAE,cAAc,EAAE,kBAAkB,EAAE,CAAC;CACnE,CAAC;AAEF;IAAA;IAEA,CAAC;IAFY,mBAAmB;QAD/B,iBAAU,EAAE;OACA,mBAAmB,CAE/B;IAAD,0BAAC;CAAA,AAFD,IAEC;AAFY,kDAAmB"}

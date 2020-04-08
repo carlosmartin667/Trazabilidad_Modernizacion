@@ -143,6 +143,7 @@
     <Compile Include="Controllers\DetalleTarjetaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ParametrosController.cs" />
+    <Compile Include="Controllers\SeguimientoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,6 +172,8 @@
     <Content Include="app\consultas\consultas.component.html" />
     <Content Include="app\detallePlastico\detallePlastico.component.html" />
     <Content Include="app\detalleTarjeta\detalleTarjeta.component.html" />
+    <Content Include="app\seguimiento\Seguimiento.component.css" />
+    <Content Include="app\seguimiento\Seguimiento.component.html" />
     <Content Include="Content\bancor.style.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -396,6 +399,7 @@
     <Content Include="Views\DetalleTarjeta\Index.cshtml" />
     <Content Include="Views\DetallePlastico\Index.cshtml" />
     <Content Include="Views\ConsultasPlasticos\Index.cshtml" />
+    <Content Include="Views\Seguimiento\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -436,6 +440,9 @@
     <TypeScriptCompile Include="app\model\SolicitudesModel.ts" />
     <TypeScriptCompile Include="app\model\Sucursal.ts" />
     <TypeScriptCompile Include="app\model\TipoSolicitudesmodel.ts" />
+    <TypeScriptCompile Include="app\seguimiento\seguimiento.component.ts" />
+    <TypeScriptCompile Include="app\seguimiento\seguimiento.main.ts" />
+    <TypeScriptCompile Include="app\seguimiento\seguimiento.module.ts" />
     <TypeScriptCompile Include="app\services\consultaPlastico.service.ts" />
     <TypeScriptCompile Include="app\services\consultasPlasticos.service.ts" />
     <TypeScriptCompile Include="app\services\conversion.service.ts" />
@@ -445,6 +452,7 @@
     <TypeScriptCompile Include="app\services\marca.service.ts" />
     <TypeScriptCompile Include="app\services\modalidadEntrega.ts" />
     <TypeScriptCompile Include="app\services\producto.service.ts" />
+    <TypeScriptCompile Include="app\services\seguimiento.service.ts" />
     <TypeScriptCompile Include="app\services\sucursal.service.ts" />
     <TypeScriptCompile Include="app\shared\Constantes.ts" />
     <TypeScriptCompile Include="Scripts\index.d.ts" />
