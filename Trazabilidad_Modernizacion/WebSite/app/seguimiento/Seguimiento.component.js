@@ -20,6 +20,7 @@ var SeguimientoComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'seguimiento-component',
             templateUrl: 'app/seguimiento/seguimiento.component.html',
+            styleUrls: ['app/seguimiento/Seguimiento.component.css']
         }),
         __metadata("design:paramtypes", [])
     ], SeguimientoComponent);
