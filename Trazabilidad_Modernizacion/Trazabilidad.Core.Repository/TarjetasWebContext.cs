@@ -60,9 +60,10 @@ namespace Trazabilidad.Core.Repository
         public DbSet<Solicitudes> Solicitudes { get; set; }
         public DbSet<Solicitudes_Seguimiento> Solicitudes_Seguimiento { get; set; }
         public DbSet<TipoAlertas> TipoAlertas { get; set; }
-        public DbSet<AcusesInventario_Temporal> AcusesInventario_Temporal { get; set; }
+        //public DbSet<AcusesInventario_Temporal> AcusesInventario_Temporal { get; set; }
         public DbSet<Conversiones> Conversiones { get; set; }
         public DbSet<Mensajes> Mensajes { get; set; }
-        DbSet<TipoSolicitudes> TipoSolicitudes { get; set; }
+         DbSet<TipoSolicitudes> TipoSolicitudes { get; set; }
+
     }
 }

@@ -11,9 +11,11 @@ namespace Trazabilidad.Core.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Canales : BaseEntity
     {
+        [Key]
         public decimal canID { get; set; }
         public string canDes { get; set; }
         public string canObservacion { get; set; }

@@ -10,9 +10,9 @@ namespace Trazabilidad.Core.Domain
 {
     public class BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Int32 Id { get; set; }
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public Int32 Id { get; set; }
 
     }
 }

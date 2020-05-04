@@ -11,9 +11,11 @@ namespace Trazabilidad.Core.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class AlertasPlastico : BaseEntity
     {
+        [Key]
         public decimal aplId { get; set; }
         public decimal adeId { get; set; }
         public decimal aplNumero { get; set; }

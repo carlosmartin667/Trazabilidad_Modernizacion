@@ -17,5 +17,7 @@ namespace Trazabilidad.Core.Interfaces.Repository
         /// <returns></returns>
         Plasticos ObtenerPlastico(Int32 IdPlastico, string IncludeProperties);
         int ObtenerTotalPlasticos();
+
+        List<Plasticos> Paginador(int PaginaActual);
     }
 }

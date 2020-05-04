@@ -18,8 +18,8 @@ namespace Trazabilidad.Core.Repository
             if (IdPlastico == 0)
                 throw new ArgumentException("Se debe proporcionar un Id de Plastico");
 
-           var plastico = dbSet.FirstOrDefault(x => x.Reg_id == IdPlastico);
-            
+            var plastico = dbSet.FirstOrDefault(x => x.Reg_id == IdPlastico);
+
             //Plasticos plastico = Get(x => x.Reg_id == IdPlastico, IncludeProperties).FirstOrDefault();
 
             if (plastico == null)
@@ -28,10 +28,28 @@ namespace Trazabilidad.Core.Repository
             return plastico;
         }
 
+
         public int ObtenerTotalPlasticos()
         {
             var resultadorTotalPlasticos = dbSet.Count();
             return resultadorTotalPlasticos;
+        }
+
+
+
+        List<Plasticos> IPlasticosRepository.Paginador(int PaginaActual)
+        {
+            try
+            {
+                var resultado = dbSet.OrderBy(x => x.Reg_id).Skip((PaginaActual - 1) * 10).Take(10).ToList();
+                return resultado;
+            }
+            catch (Exception ex )
+            {
+
+                throw;
+            }
+  
         }
     }
 }

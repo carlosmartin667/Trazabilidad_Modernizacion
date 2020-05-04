@@ -11,9 +11,11 @@ namespace Trazabilidad.Core.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class RecursosHumanos : BaseEntity
     {
+        [Key]
         public decimal rhId { get; set; }
         public Nullable<decimal> rhLegajo { get; set; }
         public string rhApellidoNombre { get; set; }

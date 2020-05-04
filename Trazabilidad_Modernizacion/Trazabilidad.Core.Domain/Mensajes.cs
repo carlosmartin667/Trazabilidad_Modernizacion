@@ -11,9 +11,11 @@ namespace Trazabilidad.Core.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Mensajes : BaseEntity
     {
+        [Key]
         public string sis_id { get; set; }
         public string codigo { get; set; }
         public string descripcion { get; set; }

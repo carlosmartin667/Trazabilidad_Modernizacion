@@ -11,9 +11,11 @@ namespace Trazabilidad.Core.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Estados_Secuencia : BaseEntity
     {
+        [Key]
         public decimal cxeID { get; set; }
         public Nullable<decimal> cxeEstadoOrigen { get; set; }
         public Nullable<decimal> cxeEstadoDestino { get; set; }

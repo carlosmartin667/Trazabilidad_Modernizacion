@@ -11,9 +11,11 @@ namespace Trazabilidad.Core.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class AcusesADDOC : BaseEntity 
     {
+        [Key]
         public int IdAcuse { get; set; }
         public string BarCode { get; set; }
         public string FechaRecepcion { get; set; }

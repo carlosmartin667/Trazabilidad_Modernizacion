@@ -11,9 +11,11 @@ namespace Trazabilidad.Core.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class DistribucionConfig : BaseEntity
     {
+        [Key]
         public decimal dicId { get; set; }
         public string dicMarca { get; set; }
         public string dicProducto { get; set; }

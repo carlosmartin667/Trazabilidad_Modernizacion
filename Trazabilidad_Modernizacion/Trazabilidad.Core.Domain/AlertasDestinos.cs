@@ -11,7 +11,8 @@ namespace Trazabilidad.Core.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class AlertasDestinos : BaseEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,7 @@ namespace Trazabilidad.Core.Domain
         {
             this.AlertasPlastico = new HashSet<AlertasPlastico>();
         }
-    
+         [Key]
         public decimal adeId { get; set; }
         public decimal ateId { get; set; }
         public Nullable<decimal> adeCodSucDest { get; set; }

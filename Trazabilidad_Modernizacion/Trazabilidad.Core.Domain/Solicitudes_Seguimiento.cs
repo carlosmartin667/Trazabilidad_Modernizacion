@@ -11,9 +11,13 @@ namespace Trazabilidad.Core.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Solicitudes_Seguimiento : BaseEntity
     {
+        [Key,Column (Order =0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[Column("sseID")]
         public decimal sseID { get; set; }
         public decimal solId { get; set; }
         public decimal estId { get; set; }
@@ -23,5 +27,33 @@ namespace Trazabilidad.Core.Domain
         public string obs { get; set; }
         public Nullable<bool> sseDireccion { get; set; }
         public Nullable<int> justificacionDestruccionId { get; set; }
+
+        //[Key]
+        //[Column(TypeName = "numeric")]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public decimal sseID { get; set; }
+
+        //[Column(TypeName = "numeric")]
+        //public decimal solId { get; set; }
+
+        //[Column(TypeName = "numeric")]
+        //public decimal estId { get; set; }
+
+        //[Column(TypeName = "numeric")]
+        //public decimal rchID { get; set; }
+
+        //[Column(TypeName = "smalldatetime")]
+        //public DateTime sseFecha { get; set; }
+
+        //[Required]
+        //[StringLength(30)]
+        //public string usr { get; set; }
+
+        //[StringLength(500)]
+        //public string obs { get; set; }
+
+        //public bool? sseDireccion { get; set; }
+
+        //public int? justificacionDestruccionId { get; set; }
     }
 }

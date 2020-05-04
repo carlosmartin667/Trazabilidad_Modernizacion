@@ -7,10 +7,10 @@ using Trazabilidad.Core.Domain;
 
 namespace Trazabilidad.Core.Interfaces.Repository
 {
-	public interface IEstadoRepository : IBaseRepository<Estados>
-	{
-		List<Estados> ObtenerEstadoRepository();
+    public interface ISolicitudesSeguimientoRepository : IBaseRepository<Solicitudes_Seguimiento>
+    {
+        List<Solicitudes_Seguimiento> ObtenerSeguimiento( int solId);
 
-		Estados ObtenerEstado(decimal estId);
-	}
+    }
+
 }

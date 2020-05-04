@@ -29,7 +29,7 @@ namespace Trazabilidad.Core.Interfaces.Repository
         DbSet<Solicitudes> Solicitudes { get; set; }
         DbSet<Solicitudes_Seguimiento> Solicitudes_Seguimiento { get; set; }
         DbSet<TipoAlertas> TipoAlertas { get; set; }
-        DbSet<AcusesInventario_Temporal> AcusesInventario_Temporal { get; set; }
+        //DbSet<AcusesInventario_Temporal> AcusesInventario_Temporal { get; set; }
         DbSet<Conversiones> Conversiones { get; set; }
         DbSet<Mensajes> Mensajes { get; set; }
 

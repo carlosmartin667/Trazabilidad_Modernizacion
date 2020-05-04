@@ -35,14 +35,20 @@ namespace WebSite.Controllers
             {
                 List<PlasticoViewModel> res = new List<PlasticoViewModel>();
 
-                var resultado = plasticosRepository.Get().OrderBy(x => x.Reg_id)
-                    .Skip((PaginaActual - 1) * 10)
-                    .Take(10)
-                    .ToList();
+
+                var resultado = plasticosRepository.Paginador(PaginaActual);
+
+
+                //var resultado = plasticosRepository.Get().OrderBy(x => x.Reg_id)
+                //    .Skip((PaginaActual - 1) * 10)
+                //    .Take(10)
+                //    .ToList();
+
 
                 foreach (var item in resultado)
                 {
                     PlasticoViewModel plastico = new PlasticoViewModel();
+                    plastico.Nro_sol = item.Nro_sol;
                     plastico.BarCode_Pieza = item.BarCode_Pieza;
                     plastico.Plastico_nro = item.Plastico_nro;
                     plastico.Suc_Destino = item.Suc_Destino;
@@ -50,7 +56,7 @@ namespace WebSite.Controllers
                     plastico.Nro_doc = item.Nro_doc;
                     plastico.Nro_Cuenta_Plastico = item.Nro_Cuenta_Plastico;
                     plastico.Producto_id = item.Producto_id;
-                    plastico.EstadoFecha = item.Estado_Fecha.ToString("MMddyyyy"); ;
+                    plastico.EstadoFecha = item.Estado_Fecha.ToString("MMddyyyy"); 
                     plastico.Estado_id = item.Estado_id;
                     plastico.Motivo_Impresion = item.Motivo_Impresion;
                     plastico.Mod_Entrega = item.Mod_Entrega;
@@ -58,8 +64,8 @@ namespace WebSite.Controllers
                     plastico.BarCode_Pieza = item.BarCode_Pieza;
                     plastico.Reg_id = item.Reg_id;
                     res.Add(plastico);
-                }
 
+                }
 
 
                 return Json(res, JsonRequestBehavior.AllowGet);
@@ -69,7 +75,7 @@ namespace WebSite.Controllers
 
                 throw;
             }
-          
+
         }
         public JsonResult CombosPlasticoMarca()
         {

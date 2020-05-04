@@ -11,9 +11,11 @@ namespace Trazabilidad.Core.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Alertas : BaseEntity
     {
+        [Key]
         public decimal aleID { get; set; }
         public string aleAsunto { get; set; }
         public string aleCuerpo { get; set; }

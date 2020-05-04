@@ -26,6 +26,7 @@ namespace WebSite
 			container.RegisterType<IModalidadesEntregasRepository, Trazabilidad.Core.Repository.ModalidadesEntregaRepository>();
             container.RegisterType<ISolicitudesRepository, Trazabilidad.Core.Repository.SolicitudesRepository>();
             container.RegisterType<ITipoSolicitudesRepository,Trazabilidad.Core.Repository.TipoSolicitudesRepository>();
+            container.RegisterType<ISolicitudesSeguimientoRepository, Trazabilidad.Core.Repository.SolicitudesSeguimientoRepository>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

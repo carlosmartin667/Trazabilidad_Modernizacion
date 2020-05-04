@@ -10,11 +10,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Trazabilidad.Core.Interfaces</RootNamespace>
     <AssemblyName>Trazabilidad.Core.Interfaces</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,6 +61,7 @@
     <Compile Include="Repository\IModalidadesEntregasRepository.cs" />
     <Compile Include="Repository\IProductoTCRepository.cs" />
     <Compile Include="Repository\ISolicitudesRepository.cs" />
+    <Compile Include="Repository\ISolicitudesSeguimientoRepository.cs" />
     <Compile Include="Repository\ITarjetasWebContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IBaseRepository.cs" />
