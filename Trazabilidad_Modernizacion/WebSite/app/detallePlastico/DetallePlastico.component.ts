@@ -30,7 +30,7 @@ export class DetallePlasticoComponent implements OnInit {
     ngOnInit() {
         this._DetallePlasticoService.GetInfoPlastico(this.idPlastico).subscribe(x => {
             this.infoPlastico = x.body;
-           
+            console.log(this.infoPlastico);
         });
         
     }

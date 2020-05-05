@@ -6,10 +6,18 @@ import { ComboModel } from "../model/ComboModel";
 import { Conversion } from "../model/Conversion";
 import { Estado } from "../model/Estado";
 import { PaginadorModel } from "../model/PaginadorModel";
+import { DialogService } from "ng2-bootstrap-modal";
+import { ambSeguimientoComponent } from "./abm/abmSeguimiento.component";
+import { SeguimientoServices } from "../services/seguimiento.service";
+import { SolicitudesSeguimientoModel } from "../model/SolicitudesSeguimientoModel";
+import { ModalSeguimientoComponent } from "./modal/modalSeguimiento.component";
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'consultasPlasticos-component',
-    templateUrl: 'app/consultasPlasticos/consultasPlasticos.component.html'
+    templateUrl: 'app/consultasPlasticos/consultasPlasticos.component.html',
+    styleUrls: ['app/consultasPlasticos/abm/Seguimiento.component.css'],
+    providers: [ConsultasPlasticosServices]
 })
 export class ConsultasPlasticosComponent implements OnInit {
 
@@ -35,24 +43,34 @@ export class ConsultasPlasticosComponent implements OnInit {
     public PaginaActual: number = 1;
     public test: any;
     public mensaje: string = "";
+    public nrotarjeta: SolicitudesSeguimientoModel;
+    public Seguimiento: Array<SolicitudesSeguimientoModel>;
+    applicationRef: any;
 
-    constructor(private _consultasPlasticosServices: ConsultasPlasticosServices)
-    {
+    constructor(private _consultasPlasticosServices: ConsultasPlasticosServices, private dialogService: DialogService, private seguimientoService: SeguimientoServices, public dialog: ModalSeguimientoComponent, public activeModal: NgbActiveModal, private modalService: NgbModal ) {
+
         this.listaCombo = new ComboModel;
         this.PlasticoFiltros = new DetallePlasticoModel;
         this.marca = new Conversion;
         this.estado = new Estado;
         this.prdoucto = new Conversion;
         this.paginadorModel = new PaginadorModel;
+        this.nrotarjeta = new SolicitudesSeguimientoModel();
+        this.Seguimiento = new Array<SolicitudesSeguimientoModel>()
+
     }
+    model: {};
+    msg: string;
     ngOnInit(): void {
         this._consultasPlasticosServices.GetCantidadBotones().subscribe(x => {
             this.paginadorModel = x.body;
             this.numeroPaginador = this.paginadorModel.CantidadDeBotones;
+
         });
         this._consultasPlasticosServices.GetListaPlasticos(1).subscribe(x => {
             this.listaPlastico = x.body;
             this.cantidad = this.listaPlastico.length;
+
         });
         this._consultasPlasticosServices.GetListaComboMarcas().subscribe(x => {
             this.ListaMarca = x.body;
@@ -68,7 +86,7 @@ export class ConsultasPlasticosComponent implements OnInit {
             this.ListaProducto = x.body;
         });
     }
-   
+
     BuscarSolicitudes() {
         this.PlasticoFiltros.Estado_id = parseInt(this.estado.estId);
         this.PlasticoFiltros.Producto_id = parseInt(this.marca.codigo_DESTINO);
@@ -113,5 +131,37 @@ export class ConsultasPlasticosComponent implements OnInit {
             this.listaPlastico = x.body;
             this.cantidad = this.listaPlastico.length;
         });
+    }
+
+
+    ModalPrueba(Reg_id: number) {
+        this.seguimientoService.GetInfoSeguimiento(Reg_id).subscribe(x => {
+            this.Seguimiento = x.body;
+        });
+
+        this.seguimientoService.GetObtenerNroTarjeta(Reg_id).subscribe(x => {
+            this.nrotarjeta = x.body;
+        });
+
+    }
+
+    SeguimientoDetalles(Reg_id: number) {
+        try {
+            console.log(Reg_id);
+            //let componentRootViewContainer = this.applicationRef['_rootComponents'][0];
+            this.dialogService.addDialog(ambSeguimientoComponent, {
+                Reg_id: "300001",
+                accion: 1
+
+            }).subscribe();
+            console.log("4343");
+        } catch (e) {
+            console.log(e);
+        }
+
+    }
+
+    open() {
+        this.modalService.open(ModalSeguimientoComponent);
     }
 }

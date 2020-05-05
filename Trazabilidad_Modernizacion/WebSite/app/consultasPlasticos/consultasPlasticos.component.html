@@ -87,7 +87,7 @@
                             <div class="alert alert-danger">
                                 <h5>{{mensaje}}</h5>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -147,8 +147,17 @@
                                         <button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="Exportar">
                                             <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                                         </button>
+
+                                        <a href="../Seguimiento?Reg_id={{x.Reg_id}}" class="btn btn-default btn-sm" aria-label="Left Align" title="Imprimir Solicitud">
+                                            consultas
+                                        </a>
+                                        <button type="button" (click)="SeguimientoDetalles(x.Reg_id)" class="btn btn-default btn-sm" aria-label="Left Align" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                            MODAL
+                                        </button>
                                     </td>
                                     <td>
+                                        <a class="btn" href="#ventana" data-toggle="modal" (click)="ModalPrueba(x.Reg_id)"> boton</a>
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                                         </div>
@@ -194,13 +203,91 @@
                             </ul>
                         </nav>
                         <div *ngIf="cantidad ==0">
+                            <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button>
                             <button type="button" class="Boton" (click)="Paginador(1)">
                                 <span class="glyphicon glyphicon-repeat"></span>
-                                Recargar
+
                             </button>
                         </div>
                     </div>
                 </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="ventana">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <br />
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div align="center">
+                    <h5 class="Titulo">Seguimiento de tarjeta</h5>
+                </div>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="panel panel-bancor">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <span></span>
+                        </h4>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="col-md-2 panel-title">
+                        <p>Nro de Tarjeta  </p>
+                    </div>
+                    <div class="col-md-10">
+                        <input class="inputNrmTarejeta" value="{{nrotarjeta.Data.tarjeta}}"  type="text" disabled />
+                    </div>
+                </div>
+
+                <br />
+                <br />
+                <br />
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="header">
+                            <th class="text-center">Fecha</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">Usuario</th>
+                            <th class="text-center">Observaciones </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let x of Seguimiento">
+                            <th>{{x.sseFecha}}</th>
+                            <td>{{x.estado}}</td>
+                            <td>{{x.usr}}</td>
+                            <td>{{x.obs}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div class="modal-footer">
+
+                <div class="text-center">
+                    <button type="button" class="btn btn-light btninter " data-dismiss="modal">Cerrar </button>
+                    <button type="button" class="btn btn-light btninter right buttonImprimir  ">Imprimir </button>
+                </div>
+
             </div>
         </div>
     </div>
