@@ -1,6 +1,4 @@
-﻿import { SeguimientoServices } from "../services/seguimiento.service";
-
-export class Constantes {
+﻿export class Constantes {
      public static URL_BASE = ""; 
     //Consultas;
 
@@ -66,12 +64,4 @@ export class Constantes {
     public static URL_OBTENER_COMBOS_PLASTICOS_MARCA = Constantes.URL_BASE + "ConsultasPlasticos/CombosPlasticoMarca"
     public static URL_OBTENER_COMBOS_PLASTICOS_PRODUCTO = Constantes.URL_BASE + "ConsultasPlasticos/CombosPlasticoProducto"
     public static URL_OBTENER_COMBOS_PLASTICOS_ESTADOS = Constantes.URL_BASE + "ConsultasPlasticos/CombosPlasticoEstados"
-
-
-   //Seguimiento
-
-
-    public static URL_OBTENER_SEGUIMIENTO = Constantes.URL_BASE + "Seguimiento/ObtenerSeguimiento"
-    public static URL_OBTENER_OBTENERNRMTARJETA = Constantes.URL_BASE + "Seguimiento/ObtenerNroTarjeta"
-    
 }
