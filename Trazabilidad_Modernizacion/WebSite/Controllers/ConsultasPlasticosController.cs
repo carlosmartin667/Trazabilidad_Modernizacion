@@ -64,18 +64,13 @@ namespace WebSite.Controllers
                     plastico.BarCode_Pieza = item.BarCode_Pieza;
                     plastico.Reg_id = item.Reg_id;
                     res.Add(plastico);
-
                 }
-
-
                 return Json(res, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
-
                 throw;
             }
-
         }
         public JsonResult CombosPlasticoMarca()
         {

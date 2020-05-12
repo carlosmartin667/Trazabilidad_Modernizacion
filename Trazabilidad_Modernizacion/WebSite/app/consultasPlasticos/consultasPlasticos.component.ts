@@ -6,10 +6,15 @@ import { ComboModel } from "../model/ComboModel";
 import { Conversion } from "../model/Conversion";
 import { Estado } from "../model/Estado";
 import { PaginadorModel } from "../model/PaginadorModel";
+import { DialogService } from "ng2-bootstrap-modal";
+import { ModalSeguimientoComponent } from "./abm/modalSeguimiento.component";
+import { SeguimientoServices } from "../services/seguimiento.service";
+import { SolicitudesSeguimientoModel } from "../model/SolicitudesSeguimientoModel";
 
 @Component({
     selector: 'consultasPlasticos-component',
-    templateUrl: 'app/consultasPlasticos/consultasPlasticos.component.html'
+    templateUrl: 'app/consultasPlasticos/consultasPlasticos.component.html',
+    styleUrls: ['app/consultasPlasticos/abm/modalSeguimiento.component.css']
 })
 export class ConsultasPlasticosComponent implements OnInit {
 
@@ -35,8 +40,10 @@ export class ConsultasPlasticosComponent implements OnInit {
     public PaginaActual: number = 1;
     public test: any;
     public mensaje: string = "";
+    public nrotarjeta: SolicitudesSeguimientoModel;
+    public Seguimiento: Array<SolicitudesSeguimientoModel>;
 
-    constructor(private _consultasPlasticosServices: ConsultasPlasticosServices)
+    constructor(private _consultasPlasticosServices: ConsultasPlasticosServices, private dialogService: DialogService, private seguimientoService: SeguimientoServices)
     {
         this.listaCombo = new ComboModel;
         this.PlasticoFiltros = new DetallePlasticoModel;
@@ -44,6 +51,11 @@ export class ConsultasPlasticosComponent implements OnInit {
         this.estado = new Estado;
         this.prdoucto = new Conversion;
         this.paginadorModel = new PaginadorModel;
+        this.nrotarjeta = new SolicitudesSeguimientoModel();
+        this.Seguimiento = new Array<SolicitudesSeguimientoModel>()
+    }
+    NgModule() {
+
     }
     ngOnInit(): void {
         this._consultasPlasticosServices.GetCantidadBotones().subscribe(x => {
@@ -113,5 +125,27 @@ export class ConsultasPlasticosComponent implements OnInit {
             this.listaPlastico = x.body;
             this.cantidad = this.listaPlastico.length;
         });
+    }
+
+
+    showAlert(Reg_id: number) {
+        try {
+            this.dialogService.addDialog(ModalSeguimientoComponent, { title: 'Alert title!', message: 'Alert message!!!',reg_id: Reg_id});
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+
+    ModalPrueba(Reg_id: number) {
+        this.seguimientoService.GetInfoSeguimiento(Reg_id).subscribe(x => {
+            this.Seguimiento = x.body;
+        });
+
+        this.seguimientoService.GetObtenerNroTarjeta(Reg_id).subscribe(x => {
+            this.nrotarjeta = x.body;
+        });
+
     }
 }

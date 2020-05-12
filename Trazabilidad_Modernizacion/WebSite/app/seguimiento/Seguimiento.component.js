@@ -10,11 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var seguimiento_service_1 = require("../services/seguimiento.service");
+var SolicitudesSeguimientoModel_1 = require("../model/SolicitudesSeguimientoModel");
 var SeguimientoComponent = /** @class */ (function () {
-    function SeguimientoComponent() {
-        this.titulo = "HOLA  SeguimientoComponent";
+    function SeguimientoComponent(_SeguimientoServicese) {
+        this._SeguimientoServicese = _SeguimientoServicese;
+        //this.n = new SolicitudesSeguimientoModel();
+        this.nrotarjeta = new SolicitudesSeguimientoModel_1.SolicitudesSeguimientoModel();
+        var urlParams = new URLSearchParams(window.location.search.toLowerCase());
+        this.Reg_id = urlParams.get('reg_id');
     }
     SeguimientoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._SeguimientoServicese.GetInfoSeguimiento(this.Reg_id).subscribe(function (x) {
+            _this.Seguimiento = x.body;
+        });
+        this._SeguimientoServicese.GetObtenerNroTarjeta(this.Reg_id).subscribe(function (x) {
+            _this.nrotarjeta = x.body;
+        });
     };
     SeguimientoComponent = __decorate([
         core_1.Component({
@@ -22,7 +35,7 @@ var SeguimientoComponent = /** @class */ (function () {
             templateUrl: 'app/seguimiento/seguimiento.component.html',
             styleUrls: ['app/seguimiento/Seguimiento.component.css']
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [seguimiento_service_1.SeguimientoServices])
     ], SeguimientoComponent);
     return SeguimientoComponent;
 }());

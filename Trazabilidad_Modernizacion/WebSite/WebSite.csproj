@@ -169,11 +169,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.component.html" />
-    <Content Include="app\consultasPlasticos\abm\Seguimiento.component.css" />
+    <Content Include="app\consultasPlasticos\abm\modalSeguimiento.component.css" />
+    <Content Include="app\consultasPlasticos\abm\modalSeguimiento.component.html" />
     <Content Include="app\consultasPlasticos\consultasPlasticos.component.html" />
-    <Content Include="app\consultasPlasticos\modal\modalSeguimiento.component.html" />
     <Content Include="app\consultas\consultas.component.html" />
-    <Content Include="app\consultasPlasticos\abm\abmSeguimiento.component.html" />
     <Content Include="app\detallePlastico\detallePlastico.component.html" />
     <Content Include="app\detalleTarjeta\detalleTarjeta.component.html" />
     <Content Include="app\seguimiento\Seguimiento.component.css" />
@@ -418,14 +417,13 @@
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.main.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\consultasPlasticos\abm\modalSeguimiento.component.ts" />
     <TypeScriptCompile Include="app\consultasPlasticos\consultasPlasticos.component.ts" />
     <TypeScriptCompile Include="app\consultasPlasticos\consultasPlasticos.main.ts" />
     <TypeScriptCompile Include="app\consultasPlasticos\consultasPlasticos.module.ts" />
-    <TypeScriptCompile Include="app\consultasPlasticos\modal\modalSeguimiento.component.ts" />
     <TypeScriptCompile Include="app\consultas\consultas.component.ts" />
     <TypeScriptCompile Include="app\consultas\consultas.main.ts" />
     <TypeScriptCompile Include="app\consultas\consultas.module.ts" />
-    <TypeScriptCompile Include="app\consultasPlasticos\abm\abmSeguimiento.component.ts" />
     <TypeScriptCompile Include="app\detallePlastico\detallePlastico.component.ts" />
     <TypeScriptCompile Include="app\detallePlastico\detallePlastico.main.ts" />
     <TypeScriptCompile Include="app\detallePlastico\detallePlastico.module.ts" />
