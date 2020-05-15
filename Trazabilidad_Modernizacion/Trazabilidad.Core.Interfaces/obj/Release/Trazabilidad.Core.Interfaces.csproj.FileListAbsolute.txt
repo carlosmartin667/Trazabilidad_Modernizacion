@@ -1,0 +1,14 @@
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\bin\Release\Trazabilidad.Core.Interfaces.dll.config
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\bin\Release\Trazabilidad.Core.Interfaces.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\bin\Release\Trazabilidad.Core.Interfaces.pdb
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\bin\Release\EntityFramework.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\bin\Release\Trazabilidad.Core.Domain.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\bin\Release\Trazabilidad.Core.Domain.pdb
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\bin\Release\EntityFramework.xml
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\obj\Release\Trazabilidad.Core.Interfaces.csprojAssemblyReference.cache
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\obj\Release\Trazabilidad.Core.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\obj\Release\Trazabilidad.Core.Interfaces.csproj.CopyComplete
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\obj\Release\Trazabilidad.Core.Interfaces.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Interfaces\obj\Release\Trazabilidad.Core.Interfaces.pdb

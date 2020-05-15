@@ -1,0 +1,19 @@
+﻿.header {
+    color: #fff;
+    background: #007D57;
+}
+
+.buttonImprimir {
+    margin-left: 50px;
+}
+
+.inputNrmTarejeta {
+    background: #fff;
+}
+.colum {
+    width: 130px;
+}
+.inputNrmTarejeta {
+    margin-left: -50px;
+    background: #fff;
+}

@@ -5,8 +5,10 @@ import { FormsModule } from "@angular/forms";
 import { ConsultasPlasticosComponent } from "./consultasPlasticos.component";
 import { ConsultasPlasticosServices } from "../services/consultasPlasticos.service";
 import { BootstrapModalModule } from "ng2-bootstrap-modal";
-import { ModalSeguimientoComponent } from "./abm/modalSeguimiento.component";
 import { SeguimientoServices } from "../services/seguimiento.service";
+import { ModalSeguimientoComponent } from "./seguimiento/modalSeguimiento.component";
+import { ModalEstadoComponent } from "./estado/modalEstado.component";
+import { EstadoService } from "../services/estado.service";
 
 
 @NgModule({
@@ -19,15 +21,19 @@ import { SeguimientoServices } from "../services/seguimiento.service";
     ],
     declarations: [
         ConsultasPlasticosComponent,
-        ModalSeguimientoComponent
+        ModalSeguimientoComponent,
+
+        ModalEstadoComponent
     ],
     providers: [
         ConsultasPlasticosServices,
-        SeguimientoServices
+        SeguimientoServices,
+        EstadoService
     ],
 
     entryComponents: [
-        ModalSeguimientoComponent
+        ModalSeguimientoComponent,
+        ModalEstadoComponent
     ],
     bootstrap: [
         ConsultasPlasticosComponent

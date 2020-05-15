@@ -1,0 +1,6 @@
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\TarjetasWeb.Core.Services.Interface\bin\Release\TarjetasWeb.Core.Services.Interface.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\TarjetasWeb.Core.Services.Interface\bin\Release\TarjetasWeb.Core.Services.Interface.pdb
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\TarjetasWeb.Core.Services.Interface\obj\Release\Trazabilidad.Core.Services.Interface.csprojAssemblyReference.cache
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\TarjetasWeb.Core.Services.Interface\obj\Release\Trazabilidad.Core.Services.Interface.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\TarjetasWeb.Core.Services.Interface\obj\Release\TarjetasWeb.Core.Services.Interface.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\TarjetasWeb.Core.Services.Interface\obj\Release\TarjetasWeb.Core.Services.Interface.pdb

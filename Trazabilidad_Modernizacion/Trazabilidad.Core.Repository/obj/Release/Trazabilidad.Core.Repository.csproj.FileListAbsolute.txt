@@ -1,0 +1,17 @@
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\Trazabilidad.Core.Repository.dll.config
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\Trazabilidad.Core.Repository.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\Trazabilidad.Core.Repository.pdb
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\EntityFramework.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\Trazabilidad.Core.Domain.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\Trazabilidad.Core.Interfaces.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\Trazabilidad.Core.Domain.pdb
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\Trazabilidad.Core.Interfaces.pdb
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\Trazabilidad.Core.Interfaces.dll.config
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\EntityFramework.xml
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\obj\Release\Trazabilidad.Core.Repository.csprojAssemblyReference.cache
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\obj\Release\Trazabilidad.Core.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\obj\Release\Trazabilidad.Core.Repository.csproj.CopyComplete
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\obj\Release\Trazabilidad.Core.Repository.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Repository\obj\Release\Trazabilidad.Core.Repository.pdb

@@ -7,14 +7,14 @@ import { Conversion } from "../model/Conversion";
 import { Estado } from "../model/Estado";
 import { PaginadorModel } from "../model/PaginadorModel";
 import { DialogService } from "ng2-bootstrap-modal";
-import { ModalSeguimientoComponent } from "./abm/modalSeguimiento.component";
 import { SeguimientoServices } from "../services/seguimiento.service";
 import { SolicitudesSeguimientoModel } from "../model/SolicitudesSeguimientoModel";
+import { ModalSeguimientoComponent } from "./seguimiento/modalSeguimiento.component";
+import { ModalEstadoComponent } from "./estado/modalEstado.component";
 
 @Component({
     selector: 'consultasPlasticos-component',
     templateUrl: 'app/consultasPlasticos/consultasPlasticos.component.html',
-    styleUrls: ['app/consultasPlasticos/abm/modalSeguimiento.component.css']
 })
 export class ConsultasPlasticosComponent implements OnInit {
 
@@ -69,9 +69,15 @@ export class ConsultasPlasticosComponent implements OnInit {
         this._consultasPlasticosServices.GetListaComboMarcas().subscribe(x => {
             this.ListaMarca = x.body;
         });
-        this._consultasPlasticosServices.GetListaCombosEstados().subscribe(x => {
-            this.ListaEstados = x.body;
-        });
+        try {
+            this._consultasPlasticosServices.GetListaCombosEstados().subscribe(x => {
+                this.ListaEstados = x.body;
+                console.log(this.ListaEstados);
+            });
+        } catch (e) {
+            console.log(e);
+        }
+
     }
 
     ObtenerProductosPorMarca() {
@@ -128,9 +134,20 @@ export class ConsultasPlasticosComponent implements OnInit {
     }
 
 
-    showAlert(Reg_id: number) {
+    showAlert(Reg_id: number, Nombre: string) {
         try {
-            this.dialogService.addDialog(ModalSeguimientoComponent, { title: 'Alert title!', message: 'Alert message!!!',reg_id: Reg_id});
+            this.dialogService.addDialog(ModalSeguimientoComponent, { reg_id: Reg_id});
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    EstadoActualizar( x:any) {
+        try {
+
+    
+            this.dialogService.addDialog(ModalEstadoComponent, { listaPlastico:x,ListaEstados:this.ListaEstados});
 
         } catch (e) {
             console.log(e);
@@ -138,14 +155,4 @@ export class ConsultasPlasticosComponent implements OnInit {
     }
 
 
-    ModalPrueba(Reg_id: number) {
-        this.seguimientoService.GetInfoSeguimiento(Reg_id).subscribe(x => {
-            this.Seguimiento = x.body;
-        });
-
-        this.seguimientoService.GetObtenerNroTarjeta(Reg_id).subscribe(x => {
-            this.nrotarjeta = x.body;
-        });
-
-    }
 }

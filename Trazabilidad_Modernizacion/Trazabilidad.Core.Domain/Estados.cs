@@ -15,11 +15,11 @@ namespace Trazabilidad.Core.Domain
 
 	public partial class Estados
 	{
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-		public Estados()
-		{
-			this.AlertasTiposEmail = new HashSet<AlertasTiposEmail>();
-		}
+		//[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+		//public Estados()
+		//{
+		//	this.AlertasTiposEmail = new HashSet<AlertasTiposEmail>();
+		//}
 
 		[Key]
 		public decimal estId { get; set; }
@@ -27,8 +27,8 @@ namespace Trazabilidad.Core.Domain
         public Nullable<decimal> catID_est { get; set; }
         public Nullable<int> estHablitaRecepcionFisicoyPlastico { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AlertasTiposEmail> AlertasTiposEmail { get; set; }//no
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<AlertasTiposEmail> AlertasTiposEmail { get; set; }//no
 
     }
 }

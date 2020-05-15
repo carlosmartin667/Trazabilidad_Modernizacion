@@ -1,0 +1,12 @@
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\bin\Release\Trazabilidad.Core.Services.Repository.dll.config
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\bin\Release\Trazabilidad.Core.Services.Repository.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\bin\Release\Trazabilidad.Core.Services.Repository.pdb
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\bin\Release\560_wsBancor_Parametros.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\bin\Release\TarjetasWeb.Core.Services.Interface.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\bin\Release\WS_Core.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\bin\Release\TarjetasWeb.Core.Services.Interface.pdb
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\obj\Release\Trazabilidad.Core.Services.Repository.csprojAssemblyReference.cache
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\obj\Release\Trazabilidad.Core.Services.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\obj\Release\Trazabilidad.Core.Services.Repository.csproj.CopyComplete
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\obj\Release\Trazabilidad.Core.Services.Repository.dll
+C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Services.Repository\obj\Release\Trazabilidad.Core.Services.Repository.pdb
