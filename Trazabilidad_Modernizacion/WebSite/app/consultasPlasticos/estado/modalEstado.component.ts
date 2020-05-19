@@ -9,8 +9,8 @@ import { ConsultasPlasticosServices } from "../../services/consultasPlasticos.se
 
 export interface AlertModel {
     ListaEstados: Array<Estado>;
-    //reg_id: any;
     listaPlastico: DetallePlasticoModel;
+
 }
 
 @Component({
@@ -25,13 +25,14 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
     public nrotarjeta: SolicitudesSeguimientoModel;
     public listaPlastico: DetallePlasticoModel;
     public activo: boolean = false;
-    public estado:  Estado;
+    public estId: string = "0";
+
+    public ListaEstadosPermitidas: Array<Estado>;
 
     constructor(dialogService: DialogService, private _EstadoService: EstadoService, private _SeguimientoServicese: SeguimientoServices, private _consultasPlasticosServices: ConsultasPlasticosServices) {
         super(dialogService);
         this.nrotarjeta = new SolicitudesSeguimientoModel();
         this.ListaEstados = new Array<Estado>();
-        this.estado = new Estado();
         this.listaPlastico = new DetallePlasticoModel();
     }
 
@@ -39,9 +40,22 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
         this._SeguimientoServicese.GetObtenerNroTarjeta(this.listaPlastico.Reg_id).subscribe(x => {
             this.nrotarjeta = x.body;
         });
+
+        this.estadosPosibles();
     }
 
+    estadosPosibles() {
+        for (var i = 0; i < this.ListaEstados.length; i++) {
+            if (this.ListaEstados[i].estId < this.listaPlastico.Estado_id.toString()) {
+                this.ListaEstadosPermitidas.push(this.ListaEstados[i])
+            }
+          
+        }
 
+        for (var i = 0; i < this.ListaEstadosPermitidas.length; i++) {
+            console.log(this.ListaEstadosPermitidas[i])
+        }
+    }
     Validar(estId: string) {
  
         if (this.activo == false) {
@@ -55,31 +69,26 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
             }
             this.activo = true;
 
-            this.estado.estId = estId;
+            this.estId = estId;
         } else {
             for (var i = 0; i < this.ListaEstados.length; i++) {
                 this.ListaEstados[i].act = true;
             }
             this.activo = false;
+            this.estId = "0";
         }
     }
 
 
     Confirmar() {
-        console.log(this.estado.estId);
-
-
         console.log(this.listaPlastico.Estado_id);
-        var Plastico = this.listaPlastico;
+        var Estadoid = this.estId;
+        var IdPlastico = this.listaPlastico.Reg_id;
         try {
-            this._consultasPlasticosServices.modificarEstado(43, 67).subscribe()
-
-            ;
+            this._consultasPlasticosServices.modificarEstado(IdPlastico, Estadoid).subscribe();
         } catch (e) {
             console.log(e);
         }
    
-        //this.e
-        //this.listaPlastico.Estado_id
     }
 }

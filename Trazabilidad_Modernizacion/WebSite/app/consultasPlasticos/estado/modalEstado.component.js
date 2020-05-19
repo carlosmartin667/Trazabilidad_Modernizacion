@@ -25,7 +25,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ng2_bootstrap_modal_1 = require("ng2-bootstrap-modal");
 var estado_service_1 = require("../../services/estado.service");
-var Estado_1 = require("../../model/Estado");
 var SolicitudesSeguimientoModel_1 = require("../../model/SolicitudesSeguimientoModel");
 var seguimiento_service_1 = require("../../services/seguimiento.service");
 var detallePlasticoModel_1 = require("../../model/detallePlasticoModel");
@@ -38,9 +37,9 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
         _this._SeguimientoServicese = _SeguimientoServicese;
         _this._consultasPlasticosServices = _consultasPlasticosServices;
         _this.activo = false;
+        _this.estId = "0";
         _this.nrotarjeta = new SolicitudesSeguimientoModel_1.SolicitudesSeguimientoModel();
         _this.ListaEstados = new Array();
-        _this.estado = new Estado_1.Estado();
         _this.listaPlastico = new detallePlasticoModel_1.DetallePlasticoModel();
         return _this;
     }
@@ -49,6 +48,17 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
         this._SeguimientoServicese.GetObtenerNroTarjeta(this.listaPlastico.Reg_id).subscribe(function (x) {
             _this.nrotarjeta = x.body;
         });
+        this.estadosPosibles();
+    };
+    ModalEstadoComponent.prototype.estadosPosibles = function () {
+        for (var i = 0; i < this.ListaEstados.length; i++) {
+            if (this.ListaEstados[i].estId < this.listaPlastico.Estado_id.toString()) {
+                this.ListaEstadosPermitidas.push(this.ListaEstados[i]);
+            }
+        }
+        for (var i = 0; i < this.ListaEstadosPermitidas.length; i++) {
+            console.log(this.ListaEstadosPermitidas[i]);
+        }
     };
     ModalEstadoComponent.prototype.Validar = function (estId) {
         if (this.activo == false) {
@@ -61,27 +71,26 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
                 }
             }
             this.activo = true;
-            this.estado.estId = estId;
+            this.estId = estId;
         }
         else {
             for (var i = 0; i < this.ListaEstados.length; i++) {
                 this.ListaEstados[i].act = true;
             }
             this.activo = false;
+            this.estId = "0";
         }
     };
     ModalEstadoComponent.prototype.Confirmar = function () {
-        console.log(this.estado.estId);
         console.log(this.listaPlastico.Estado_id);
-        var Plastico = this.listaPlastico;
+        var Estadoid = this.estId;
+        var IdPlastico = this.listaPlastico.Reg_id;
         try {
-            this._consultasPlasticosServices.modificarEstado(43, 67).subscribe();
+            this._consultasPlasticosServices.modificarEstado(IdPlastico, Estadoid).subscribe();
         }
         catch (e) {
             console.log(e);
         }
-        //this.e
-        //this.listaPlastico.Estado_id
     };
     ModalEstadoComponent = __decorate([
         core_1.Component({
