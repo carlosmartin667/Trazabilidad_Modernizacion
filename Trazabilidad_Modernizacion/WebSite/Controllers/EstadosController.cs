@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Trazabilidad.Core.Interfaces.Repository;
+using WebSite.ViewModel;
 
 namespace WebSite.Controllers
 {
@@ -24,18 +25,6 @@ namespace WebSite.Controllers
         }
 
 
-        public JsonResult EditarEstado(int num)
-        {
-            try
-            {
-                var res = 0;
-
-                return Json(res, JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
+   
     }
 }

@@ -46,6 +46,19 @@ export class ConsultasPlasticosServices {
             )
         );
     };
+
+
+
+    modificarEstado(IdPlastico: number, Estadoid:number): Observable<HttpResponse<DetallePlasticoModel>> {
+        let consulta = Constantes.URL_OBTENER_MODIFICARESTADO + "?IdPlastico=" + IdPlastico + "&Estadoid=" + Estadoid;
+        return this._http.get<DetallePlasticoModel>(consulta, { observe: 'response' })
+            .pipe(
+                catchError((error: HttpErrorResponse) => {
+                    console.log(error.message);
+                    return throwError(error.message);
+                }))
+    };
+
     EnviarParametroDeFiltroRecibirParametrosDeNegociosModelListFiltrada(PaginaActual: number): Observable<DetallePlasticoModel[]> {
         return this._http.post<any>(Constantes.URL_OBTENER_FILTROS_PLASTICOS, JSON.stringify(PaginaActual), _httpOptions);
     }

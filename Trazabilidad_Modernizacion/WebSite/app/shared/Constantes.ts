@@ -73,4 +73,8 @@
 
     public static URL_OBTENER_SEGUIMIENTO = Constantes.URL_BASE + "Seguimiento/ObtenerSeguimiento"
     public static URL_OBTENER_OBTENERNRMTARJETA = Constantes.URL_BASE + "Seguimiento/ObtenerNroTarjeta"
+
+    public static URL_OBTENER_MODIFICARESTADO = Constantes.URL_BASE + "ConsultasPlasticos/EditarEstado"
+
+    
 }

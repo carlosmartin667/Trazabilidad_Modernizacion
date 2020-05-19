@@ -167,5 +167,22 @@ namespace WebSite.Controllers
             return Json(resultadoPaginador, JsonRequestBehavior.AllowGet);
         }
 
+
+
+
+        public JsonResult EditarEstado(int IdPlastico,int Estadoid)
+        {
+            try
+            {
+                //var res = 0;
+
+                return Json(IdPlastico, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
     }
 }

@@ -25,17 +25,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ng2_bootstrap_modal_1 = require("ng2-bootstrap-modal");
 var estado_service_1 = require("../../services/estado.service");
+var Estado_1 = require("../../model/Estado");
 var SolicitudesSeguimientoModel_1 = require("../../model/SolicitudesSeguimientoModel");
 var seguimiento_service_1 = require("../../services/seguimiento.service");
+var detallePlasticoModel_1 = require("../../model/detallePlasticoModel");
+var consultasPlasticos_service_1 = require("../../services/consultasPlasticos.service");
 var ModalEstadoComponent = /** @class */ (function (_super) {
     __extends(ModalEstadoComponent, _super);
-    function ModalEstadoComponent(dialogService, _EstadoService, _SeguimientoServicese) {
+    function ModalEstadoComponent(dialogService, _EstadoService, _SeguimientoServicese, _consultasPlasticosServices) {
         var _this = _super.call(this, dialogService) || this;
         _this._EstadoService = _EstadoService;
         _this._SeguimientoServicese = _SeguimientoServicese;
+        _this._consultasPlasticosServices = _consultasPlasticosServices;
         _this.activo = false;
         _this.nrotarjeta = new SolicitudesSeguimientoModel_1.SolicitudesSeguimientoModel();
         _this.ListaEstados = new Array();
+        _this.estado = new Estado_1.Estado();
+        _this.listaPlastico = new detallePlasticoModel_1.DetallePlasticoModel();
         return _this;
     }
     ModalEstadoComponent.prototype.ngOnInit = function () {
@@ -45,9 +51,6 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
         });
     };
     ModalEstadoComponent.prototype.Validar = function (estId) {
-        var cantidadEstados = this.ListaEstados.length;
-        console.log(i);
-        this.avilitar = "disabled";
         if (this.activo == false) {
             for (var i = 0; i < this.ListaEstados.length; i++) {
                 if (this.ListaEstados[i].estId == estId) {
@@ -56,14 +59,9 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
                 else {
                     this.ListaEstados[i].act = false;
                 }
-                if (this.ListaEstados[i].act == true) {
-                    console.log("true");
-                }
-                if (this.ListaEstados[i].act == false) {
-                    console.log("false");
-                }
             }
             this.activo = true;
+            this.estado.estId = estId;
         }
         else {
             for (var i = 0; i < this.ListaEstados.length; i++) {
@@ -72,13 +70,26 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
             this.activo = false;
         }
     };
+    ModalEstadoComponent.prototype.Confirmar = function () {
+        console.log(this.estado.estId);
+        console.log(this.listaPlastico.Estado_id);
+        var Plastico = this.listaPlastico;
+        try {
+            this._consultasPlasticosServices.modificarEstado(43, 67).subscribe();
+        }
+        catch (e) {
+            console.log(e);
+        }
+        //this.e
+        //this.listaPlastico.Estado_id
+    };
     ModalEstadoComponent = __decorate([
         core_1.Component({
             selector: 'consultasPlasticos-component',
             templateUrl: 'app/consultasPlasticos/estado/modalEstado.component.html',
             styleUrls: ['app/consultasPlasticos/estado/modalEstado.component.css']
         }),
-        __metadata("design:paramtypes", [ng2_bootstrap_modal_1.DialogService, estado_service_1.EstadoService, seguimiento_service_1.SeguimientoServices])
+        __metadata("design:paramtypes", [ng2_bootstrap_modal_1.DialogService, estado_service_1.EstadoService, seguimiento_service_1.SeguimientoServices, consultasPlasticos_service_1.ConsultasPlasticosServices])
     ], ModalEstadoComponent);
     return ModalEstadoComponent;
 }(ng2_bootstrap_modal_1.DialogComponent));
