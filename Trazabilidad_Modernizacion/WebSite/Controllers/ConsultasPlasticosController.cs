@@ -15,14 +15,18 @@ namespace WebSite.Controllers
         private IPlasticosRepository plasticosRepository { get; }
         private IConversionRepository conversionRepository { get; }
         private IEstadoRepository estadoRepository { get; }
+        private IEstados_SecuenciaRepository estados_SecuenciaRepository { get; }
+
         public ConsultasPlasticosController(
             IPlasticosRepository _plasticosRepository,
             IConversionRepository _conversionRepository,
-            IEstadoRepository _estadoRepository)
+            IEstadoRepository _estadoRepository,
+            IEstados_SecuenciaRepository _estados_SecuenciaRepository)
         {
             plasticosRepository = _plasticosRepository;
             conversionRepository = _conversionRepository;
             estadoRepository = _estadoRepository;
+            estados_SecuenciaRepository = _estados_SecuenciaRepository;
         }
 
         public ActionResult Index()
@@ -56,7 +60,7 @@ namespace WebSite.Controllers
                     plastico.Nro_doc = item.Nro_doc;
                     plastico.Nro_Cuenta_Plastico = item.Nro_Cuenta_Plastico;
                     plastico.Producto_id = item.Producto_id;
-                    plastico.EstadoFecha = item.Estado_Fecha.ToString("MMddyyyy"); 
+                    plastico.EstadoFecha = item.Estado_Fecha.ToString("MMddyyyy");
                     plastico.Estado_id = item.Estado_id;
                     plastico.Motivo_Impresion = item.Motivo_Impresion;
                     plastico.Mod_Entrega = item.Mod_Entrega;
@@ -169,14 +173,38 @@ namespace WebSite.Controllers
 
 
 
-
-        public JsonResult EditarEstado(int IdPlastico,int Estadoid)
+        public JsonResult TraerSecuenciaEstado(decimal Estadoid)
         {
             try
             {
-                //var res = 0;
+                var resultado = estados_SecuenciaRepository.TraerSecuencia(Estadoid);
 
-                return Json(IdPlastico, JsonRequestBehavior.AllowGet);
+                List<Estados> estados = new List<Estados>();
+
+                foreach (var item in resultado)
+                {
+                    Estados estado = new Estados();
+                    estado = estadoRepository.ObtenerEstado((decimal)item.cxeEstadoDestino);
+                    estados.Add(estado);
+                }
+
+                    return Json(estados, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+
+        public JsonResult EditarEstado(decimal IdPlastico, decimal Estadoid)
+        {
+            try
+            {
+                var res = plasticosRepository.ModificarEstado(IdPlastico, Estadoid);
+
+                return Json(res, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {

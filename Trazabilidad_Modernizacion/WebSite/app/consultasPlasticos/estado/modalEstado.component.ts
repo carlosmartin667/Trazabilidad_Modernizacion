@@ -40,7 +40,9 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
         this._SeguimientoServicese.GetObtenerNroTarjeta(this.listaPlastico.Reg_id).subscribe(x => {
             this.nrotarjeta = x.body;
         });
-
+        this._consultasPlasticosServices.GetObtenerSecuenciaEstado(127).subscribe(x => {
+            console.log(x.body);
+        });
         this.estadosPosibles();
     }
 
@@ -90,5 +92,5 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
             console.log(e);
         }
    
-    }
+    } 
 }

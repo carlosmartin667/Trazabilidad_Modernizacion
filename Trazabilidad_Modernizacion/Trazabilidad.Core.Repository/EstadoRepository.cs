@@ -29,5 +29,7 @@ namespace Trazabilidad.Core.Repository
             var Estados = dbSet.Where(x => x.catID_est == 6).ToList();
             return Estados;
         }
+
+
     }
 }

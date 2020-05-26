@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Repository\IConversionRepository.cs" />
     <Compile Include="Repository\IEstadoRepository.cs" />
+    <Compile Include="Repository\IEstados_SecuenciaRepository.cs" />
     <Compile Include="Repository\IGrupoAfinidadRepository.cs" />
     <Compile Include="Repository\ILoggerService.cs" />
     <Compile Include="Repository\IMarcaRepository.cs" />

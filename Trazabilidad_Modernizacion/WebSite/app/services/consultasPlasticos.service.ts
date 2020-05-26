@@ -93,4 +93,18 @@ export class ConsultasPlasticosServices {
                     return throwError(error.message);
                 }))
     };
+
+
+
+
+    GetObtenerSecuenciaEstado(Estadoid: number): Observable<HttpResponse<Estado[]>> {
+        let consulta = Constantes.URL_OBTENER_SECUENCIA_ESTADOS + "?Estadoid=" + Estadoid;
+        return this._http.get<Estado[]>(consulta, { observe: 'response' })
+            .pipe(
+                catchError((error: HttpErrorResponse) => {
+                    console.log(error.message);
+                    return throwError(error.message);
+                }))
+    };
+
 }

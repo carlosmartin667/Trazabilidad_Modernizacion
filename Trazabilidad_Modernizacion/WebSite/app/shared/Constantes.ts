@@ -64,8 +64,8 @@
     public static URL_OBTENER_COMBOS_PLASTICOS_MARCA = Constantes.URL_BASE + "ConsultasPlasticos/CombosPlasticoMarca"
     public static URL_OBTENER_COMBOS_PLASTICOS_PRODUCTO = Constantes.URL_BASE + "ConsultasPlasticos/CombosPlasticoProducto"
     public static URL_OBTENER_COMBOS_PLASTICOS_ESTADOS = Constantes.URL_BASE + "ConsultasPlasticos/CombosPlasticoEstados"
-
-
+    public static URL_OBTENER_SECUENCIA_ESTADOS = Constantes.URL_BASE + "ConsultasPlasticos/TraerSecuenciaEstado"
+    
 
 
 

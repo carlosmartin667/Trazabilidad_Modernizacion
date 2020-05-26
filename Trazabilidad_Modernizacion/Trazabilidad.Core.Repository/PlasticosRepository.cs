@@ -10,8 +10,11 @@ namespace Trazabilidad.Core.Repository
 {
     public class PlasticosRepository : BaseRepository<Plasticos>, IPlasticosRepository
     {
+        private ITarjetasWebContext dbContext;
         public PlasticosRepository(ITarjetasWebContext _context) : base(_context)
-        { }
+        {
+            dbContext = _context;
+        }
 
         public Plasticos ObtenerPlastico(int IdPlastico, string IncludeProperties = "")
         {
@@ -50,6 +53,25 @@ namespace Trazabilidad.Core.Repository
                 throw;
             }
   
+        }
+
+
+        public Plasticos ModificarEstado(decimal IdPlastico, decimal Estadoid)
+            {
+            try
+            {
+                var plasticosdb = GetByID(IdPlastico);
+                plasticosdb.Estado_id = Estadoid;             
+                Update(plasticosdb);
+                context.SaveChanges();
+                return plasticosdb;
+            }
+            catch (Exception ex )
+            {
+
+                throw;
+            }
+   
         }
     }
 }

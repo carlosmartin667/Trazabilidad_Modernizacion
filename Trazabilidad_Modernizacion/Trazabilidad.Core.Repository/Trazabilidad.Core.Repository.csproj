@@ -55,6 +55,7 @@
     <Compile Include="BaseRepository.cs" />
     <Compile Include="ConversionesRepository.cs" />
     <Compile Include="EstadoRepository.cs" />
+    <Compile Include="Estados_SecuenciaRepository.cs" />
     <Compile Include="GrupoAfinidadRepository.cs" />
     <Compile Include="MarcaTcRepository.cs" />
     <Compile Include="ModalidadesEntregaRepository.cs" />

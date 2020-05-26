@@ -48,6 +48,9 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
         this._SeguimientoServicese.GetObtenerNroTarjeta(this.listaPlastico.Reg_id).subscribe(function (x) {
             _this.nrotarjeta = x.body;
         });
+        this._consultasPlasticosServices.GetObtenerSecuenciaEstado(127).subscribe(function (x) {
+            console.log(x.body);
+        });
         this.estadosPosibles();
     };
     ModalEstadoComponent.prototype.estadosPosibles = function () {

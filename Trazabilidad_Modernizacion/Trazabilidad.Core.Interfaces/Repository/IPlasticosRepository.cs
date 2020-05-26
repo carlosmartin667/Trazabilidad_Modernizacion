@@ -19,5 +19,6 @@ namespace Trazabilidad.Core.Interfaces.Repository
         int ObtenerTotalPlasticos();
 
         List<Plasticos> Paginador(int PaginaActual);
+        Plasticos ModificarEstado(decimal IdPlastico, decimal Estadoid);
     }
 }
