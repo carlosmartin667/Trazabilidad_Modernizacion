@@ -146,7 +146,7 @@ export class ConsultasPlasticosComponent implements OnInit {
     EstadoActualizar( x:any) {
         try {
 
-            this.dialogService.addDialog(ModalEstadoComponent, { listaPlastico:x,ListaEstados:this.ListaEstados});
+            this.dialogService.addDialog(ModalEstadoComponent, { listaPlastico:x});
 
         } catch (e) {
             console.log(e);

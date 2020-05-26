@@ -49,7 +49,7 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
             _this.nrotarjeta = x.body;
         });
         this._consultasPlasticosServices.GetObtenerSecuenciaEstado(127).subscribe(function (x) {
-            console.log(x.body);
+            _this.ListaEstados = x.body;
         });
         this.estadosPosibles();
     };

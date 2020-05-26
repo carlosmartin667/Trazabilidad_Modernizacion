@@ -8,7 +8,7 @@ import { DetallePlasticoModel } from "../../model/detallePlasticoModel";
 import { ConsultasPlasticosServices } from "../../services/consultasPlasticos.service";
 
 export interface AlertModel {
-    ListaEstados: Array<Estado>;
+  
     listaPlastico: DetallePlasticoModel;
 
 }
@@ -41,7 +41,7 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
             this.nrotarjeta = x.body;
         });
         this._consultasPlasticosServices.GetObtenerSecuenciaEstado(127).subscribe(x => {
-            console.log(x.body);
+            this.ListaEstados =x.body;
         });
         this.estadosPosibles();
     }
