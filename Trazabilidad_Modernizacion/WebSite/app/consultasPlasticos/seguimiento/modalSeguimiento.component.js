@@ -36,7 +36,6 @@ var ModalSeguimientoComponent = /** @class */ (function (_super) {
     }
     ModalSeguimientoComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log("hola mundo");
         this._SeguimientoServicese.GetInfoSeguimiento(this.reg_id).subscribe(function (x) {
             _this.Seguimiento = x.body;
         });

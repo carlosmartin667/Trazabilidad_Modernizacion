@@ -15,6 +15,13 @@ namespace Trazabilidad.Core.Repository
         {
         }
 
+        public Solicitudes_Seguimiento AgrgarSolicitudesSeguimiento(Solicitudes_Seguimiento solicitudes_Seguimiento)
+        {
+            Insert(solicitudes_Seguimiento);
+            context.SaveChanges();
+            return solicitudes_Seguimiento;
+        }
+
         public List<Solicitudes_Seguimiento> ObtenerSeguimiento(int solId)
         {
             try

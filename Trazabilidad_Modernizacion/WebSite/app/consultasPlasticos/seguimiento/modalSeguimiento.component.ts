@@ -29,7 +29,6 @@ export class ModalSeguimientoComponent extends DialogComponent<AlertModel, null>
     }
 
     ngOnInit() {
-        console.log("hola mundo");
         this._SeguimientoServicese.GetInfoSeguimiento(this.reg_id).subscribe(x => {
             this.Seguimiento = x.body;
         });

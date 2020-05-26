@@ -16,17 +16,20 @@ namespace WebSite.Controllers
         private IConversionRepository conversionRepository { get; }
         private IEstadoRepository estadoRepository { get; }
         private IEstados_SecuenciaRepository estados_SecuenciaRepository { get; }
+        private ISolicitudesSeguimientoRepository solicitudesSeguimientoRepository { get; }
 
         public ConsultasPlasticosController(
             IPlasticosRepository _plasticosRepository,
             IConversionRepository _conversionRepository,
             IEstadoRepository _estadoRepository,
-            IEstados_SecuenciaRepository _estados_SecuenciaRepository)
+            IEstados_SecuenciaRepository _estados_SecuenciaRepository,
+            ISolicitudesSeguimientoRepository _solicitudesSeguimientoRepository)
         {
             plasticosRepository = _plasticosRepository;
             conversionRepository = _conversionRepository;
             estadoRepository = _estadoRepository;
             estados_SecuenciaRepository = _estados_SecuenciaRepository;
+            solicitudesSeguimientoRepository = _solicitudesSeguimientoRepository;
         }
 
         public ActionResult Index()
@@ -198,12 +201,19 @@ namespace WebSite.Controllers
         }
 
 
-        public JsonResult EditarEstado(decimal IdPlastico, decimal Estadoid)
+        public JsonResult EditarEstado(decimal IdPlastico, decimal Estadoid, string obs)
         {
             try
             {
                 var res = plasticosRepository.ModificarEstado(IdPlastico, Estadoid);
-
+                solicitudesSeguimientoRepository.AgrgarSolicitudesSeguimiento(new Solicitudes_Seguimiento
+                {
+                    estId = Estadoid,
+                    solId = IdPlastico,
+                    usr = "629",
+                    sseFecha = DateTime.Now,
+                    obs = obs
+                });
                 return Json(res, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)

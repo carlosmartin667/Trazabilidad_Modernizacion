@@ -49,8 +49,8 @@ export class ConsultasPlasticosServices {
 
 
 
-    modificarEstado(IdPlastico: number, Estadoid:any): Observable<HttpResponse<DetallePlasticoModel>> {
-        let consulta = Constantes.URL_OBTENER_MODIFICARESTADO + "?IdPlastico=" + IdPlastico + "&Estadoid=" + Estadoid;
+    modificarEstado(IdPlastico: number, Estadoid: any, obs: string): Observable<HttpResponse<DetallePlasticoModel>> {
+        let consulta = Constantes.URL_OBTENER_MODIFICARESTADO + "?IdPlastico=" + IdPlastico + "&Estadoid=" + Estadoid + "&obs=" + obs;
         return this._http.get<DetallePlasticoModel>(consulta, { observe: 'response' })
             .pipe(
                 catchError((error: HttpErrorResponse) => {

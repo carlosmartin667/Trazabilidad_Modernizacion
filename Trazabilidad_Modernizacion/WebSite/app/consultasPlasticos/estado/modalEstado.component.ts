@@ -26,7 +26,7 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
     public listaPlastico: DetallePlasticoModel;
     public activo: boolean = false;
     public estId: string = "0";
-
+    public obs: string;
     public ListaEstadosPermitidas: Array<Estado>;
 
     constructor(dialogService: DialogService, private _EstadoService: EstadoService, private _SeguimientoServicese: SeguimientoServices, private _consultasPlasticosServices: ConsultasPlasticosServices) {
@@ -87,7 +87,7 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
         var Estadoid = this.estId;
         var IdPlastico = this.listaPlastico.Reg_id;
         try {
-            this._consultasPlasticosServices.modificarEstado(IdPlastico, Estadoid).subscribe();
+            this._consultasPlasticosServices.modificarEstado(IdPlastico, Estadoid,this.obs).subscribe();
         } catch (e) {
             console.log(e);
         }

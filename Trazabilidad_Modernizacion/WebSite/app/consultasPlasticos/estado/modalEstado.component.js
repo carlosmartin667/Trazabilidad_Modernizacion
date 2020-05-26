@@ -89,7 +89,7 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
         var Estadoid = this.estId;
         var IdPlastico = this.listaPlastico.Reg_id;
         try {
-            this._consultasPlasticosServices.modificarEstado(IdPlastico, Estadoid).subscribe();
+            this._consultasPlasticosServices.modificarEstado(IdPlastico, Estadoid, this.obs).subscribe();
         }
         catch (e) {
             console.log(e);
