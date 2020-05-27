@@ -11,6 +11,7 @@ import { SeguimientoServices } from "../services/seguimiento.service";
 import { SolicitudesSeguimientoModel } from "../model/SolicitudesSeguimientoModel";
 import { ModalSeguimientoComponent } from "./seguimiento/modalSeguimiento.component";
 import { ModalEstadoComponent } from "./estado/modalEstado.component";
+import { ModalAbmComponent } from "./abm/modalAbm.component";
 
 @Component({
     selector: 'consultasPlasticos-component',
@@ -153,5 +154,24 @@ export class ConsultasPlasticosComponent implements OnInit {
         }
     }
 
+    
+    AbmEstadoActualizar(x: DetallePlasticoModel) {
+        try {
 
+            this.dialogService.addDialog(ModalAbmComponent, { listaPlastico: x, reg_id: x.Reg_id, accion: 2});
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    
+    AbmEstadoSeguimientor(x: DetallePlasticoModel) {
+        try {
+
+            this.dialogService.addDialog(ModalAbmComponent, { listaPlastico: x, reg_id: x.Reg_id, accion: 1 });
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }

@@ -182,18 +182,33 @@ namespace WebSite.Controllers
             {
                 var resultado = estados_SecuenciaRepository.TraerSecuencia(Estadoid);
 
+
+
                 List<Estados> estados = new List<Estados>();
+
+                List<EstadoViewModel> estados2 = new List<EstadoViewModel>();
 
                 foreach (var item in resultado)
                 {
                     Estados estado = new Estados();
                     estado = estadoRepository.ObtenerEstado((decimal)item.cxeEstadoDestino);
-                    estados.Add(estado);
-                }
-                List<Estados> resulatdo2 = estados.GroupBy(x => x).Select(grp => grp.First()).ToList();
-                
 
-                    return Json(resulatdo2, JsonRequestBehavior.AllowGet);
+                    estados.Add(estado);
+
+                    EstadoViewModel estado2 = new EstadoViewModel();
+
+                    estado2.estId = estado.estId;
+                    estado2.estDes = estado.estDes;
+                    estado2.catID_est = estado.catID_est;
+                    estado2.estHablitaRecepcionFisicoyPlastico = estado.estHablitaRecepcionFisicoyPlastico;
+                    estado2.cxeDireccion = (bool)item.cxeDireccion;
+                    estados2.Add(estado2);
+                }
+          
+
+                List<EstadoViewModel> resulatdo2 = estados2.GroupBy(x => x).Select(grp => grp.First()).ToList();
+
+                return Json(resulatdo2, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {

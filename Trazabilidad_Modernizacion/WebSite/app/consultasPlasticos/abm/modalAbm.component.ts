@@ -1,35 +1,39 @@
-﻿import { Component } from "@angular/core";
+﻿import { Component, OnInit } from "@angular/core";
 import { DialogComponent, DialogService } from "ng2-bootstrap-modal";
-import { EstadoService } from "../../services/estado.service";
-import { Estado } from "../../model/Estado";
-import { SolicitudesSeguimientoModel } from "../../model/SolicitudesSeguimientoModel";
 import { SeguimientoServices } from "../../services/seguimiento.service";
+import { SolicitudesSeguimientoModel } from "../../model/SolicitudesSeguimientoModel";
+import { Estado } from "../../model/Estado";
 import { DetallePlasticoModel } from "../../model/detallePlasticoModel";
+import { EstadoService } from "../../services/estado.service";
 import { ConsultasPlasticosServices } from "../../services/consultasPlasticos.service";
 
 export interface AlertModel {
-  
+    accion: number
+    reg_id: any;
     listaPlastico: DetallePlasticoModel;
-
 }
 
 @Component({
     selector: 'consultasPlasticos-component',
-    templateUrl: 'app/consultasPlasticos/estado/modalEstado.component.html',
-    styleUrls: ['app/consultasPlasticos/estado/modalEstado.component.css']
+    templateUrl: 'app/consultasPlasticos/abm/modalAbm.component.html',
+    styleUrls: ['app/consultasPlasticos/abm/modalAbm.component.css']
 })
 
-export class ModalEstadoComponent extends DialogComponent<AlertModel, null> implements AlertModel {
 
-    public ListaEstados: Array<Estado>;
+export class ModalAbmComponent extends DialogComponent<AlertModel, null> implements AlertModel {
+
+    accion: number;
+    reg_id: any;
     public nrotarjeta: SolicitudesSeguimientoModel;
+    public Seguimiento: Array<SolicitudesSeguimientoModel>;
+    public ListaEstados: Array<Estado>;
     public listaPlastico: DetallePlasticoModel;
     public activo: boolean = false;
     public estId: string = "0";
     public obs: string;
     public ListaEstadosPermitidas: Array<Estado>;
 
-    constructor(dialogService: DialogService, private _EstadoService: EstadoService, private _SeguimientoServicese: SeguimientoServices, private _consultasPlasticosServices: ConsultasPlasticosServices) {
+    constructor(dialogService: DialogService, private _SeguimientoServicese: SeguimientoServices, private _EstadoService: EstadoService, private _consultasPlasticosServices: ConsultasPlasticosServices) {
         super(dialogService);
         this.nrotarjeta = new SolicitudesSeguimientoModel();
         this.ListaEstados = new Array<Estado>();
@@ -38,22 +42,34 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
     }
 
     ngOnInit() {
-        this._SeguimientoServicese.GetObtenerNroTarjeta(this.listaPlastico.Reg_id).subscribe(x => {
-            this.nrotarjeta = x.body;
-        });
-        this._consultasPlasticosServices.GetObtenerSecuenciaEstado(this.listaPlastico.Estado_id).subscribe(x => {
-            this.ListaEstados = x.body;
-            console.log(x.body);
-        });
-        this.estadosPosibles();
-    }
+        if (this.accion == 1) {
+            this._SeguimientoServicese.GetInfoSeguimiento(this.reg_id).subscribe(x => {
+                this.Seguimiento = x.body;
+            });
 
+            this._SeguimientoServicese.GetObtenerNroTarjeta(this.reg_id).subscribe(x => {
+                this.nrotarjeta = x.body;
+            });
+        }
+
+        if (this.accion == 2) {
+            this._SeguimientoServicese.GetObtenerNroTarjeta(this.listaPlastico.Reg_id).subscribe(x => {
+                this.nrotarjeta = x.body;
+            });
+            this._consultasPlasticosServices.GetObtenerSecuenciaEstado(this.listaPlastico.Estado_id).subscribe(x => {
+                this.ListaEstados = x.body;
+            });
+            this.estadosPosibles();
+
+        }
+
+    }
     estadosPosibles() {
         for (var i = 0; i < this.ListaEstados.length; i++) {
             if (this.ListaEstados[i].estId < this.listaPlastico.Estado_id.toString()) {
                 this.ListaEstadosPermitidas.push(this.ListaEstados[i])
             }
-          
+
         }
 
         for (var i = 0; i < this.ListaEstadosPermitidas.length; i++) {
@@ -61,7 +77,7 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
         }
     }
     Validar(estId: string) {
- 
+
         if (this.activo == false) {
             for (var i = 0; i < this.ListaEstados.length; i++) {
                 if (this.ListaEstados[i].estId == estId) {
@@ -89,10 +105,10 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
         var Estadoid = this.estId;
         var IdPlastico = this.listaPlastico.Reg_id;
         try {
-            this._consultasPlasticosServices.modificarEstado(IdPlastico, Estadoid,this.obs).subscribe();
+            this._consultasPlasticosServices.modificarEstado(IdPlastico, Estadoid, this.obs).subscribe();
         } catch (e) {
             console.log(e);
         }
-   
-    } 
+
+    }
 }

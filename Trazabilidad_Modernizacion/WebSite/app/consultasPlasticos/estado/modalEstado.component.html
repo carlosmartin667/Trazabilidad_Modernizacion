@@ -58,7 +58,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let est of ListaEstados; index as i">
+                        <tr *ngFor="let est of ListaEstados; index as i"   [ngClass]="{'Body':est.cxeDireccion==true}">
                             <td> 
                                 <div class="form-check text-center">
                                     <input class="form-check-input" 

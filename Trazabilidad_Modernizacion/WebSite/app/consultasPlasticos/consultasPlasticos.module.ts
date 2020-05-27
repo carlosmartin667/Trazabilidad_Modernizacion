@@ -9,6 +9,7 @@ import { SeguimientoServices } from "../services/seguimiento.service";
 import { ModalSeguimientoComponent } from "./seguimiento/modalSeguimiento.component";
 import { ModalEstadoComponent } from "./estado/modalEstado.component";
 import { EstadoService } from "../services/estado.service";
+import { ModalAbmComponent } from "./abm/modalAbm.component";
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { EstadoService } from "../services/estado.service";
     declarations: [
         ConsultasPlasticosComponent,
         ModalSeguimientoComponent,
-
+        ModalAbmComponent,
         ModalEstadoComponent
     ],
     providers: [
@@ -33,7 +34,8 @@ import { EstadoService } from "../services/estado.service";
 
     entryComponents: [
         ModalSeguimientoComponent,
-        ModalEstadoComponent
+        ModalEstadoComponent,
+        ModalAbmComponent
     ],
     bootstrap: [
         ConsultasPlasticosComponent

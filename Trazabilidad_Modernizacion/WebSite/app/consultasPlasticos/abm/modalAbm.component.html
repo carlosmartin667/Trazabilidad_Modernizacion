@@ -1,0 +1,193 @@
+﻿
+<div *ngIf="accion ==1 ">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="close()">&times;</button>
+                <div align="center">
+                    <h5 class="Titulo">Seguimiento de tarjeta</h5>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-bancor">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <span></span>
+                        </h4>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="col-md-2 panel-title">
+                        <p>Nro de Tarjeta  </p>
+                    </div>
+                    <div class="col-md-10">
+                        <input class="inputNrmTarejeta" value="{{nrotarjeta.Data.tarjeta}}" type="text" disabled />
+                    </div>
+                </div>
+
+                <br />
+                <br />
+                <br />
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="header">
+                            <th class="text-center">Fecha</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">Usuario</th>
+                            <th class="text-center">Observaciones </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let x of Seguimiento">
+                            <th>{{x.sseFecha}}</th>
+                            <td>{{x.estado}}</td>
+                            <td>{{x.usr}}</td>
+                            <td>{{x.obs}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-light btninter ">Cerrar </button>
+                    <button type="button" class="btn btn-light btninter right buttonImprimir  ">Imprimir </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="accion ==2 ">
+
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="close()">&times;</button>
+                <div align="center">
+                    <h5 class="Titulo">Actualizacion de Estado </h5>
+                </div>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="col-md-12">
+                    <div class="panel panel-bancor">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <span></span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <p>Plastico:  </p>
+                    </div>
+                    <div class="col-md-9">
+                        <input class="inputNrmTarejeta" value="{{nrotarjeta.Data.tarjeta}}" type="text" disabled />
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <p>Apellido y Nombre:  </p>
+                    </div>
+                    <div class="col-md-9">
+                        <input class="inputNrmTarejeta" value="{{listaPlastico.Cliente_Razon}}" type="text" disabled />
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="panel panel-bancor">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <span> Estados Posibles</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="header">
+                                <th class="text-center colum">Actualizar Estado</th>
+                                <th class="text-center">Descripcion de Estado </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let est of ListaEstados; index as i" [ngClass]="{'Body':est.cxeDireccion==true}">
+                                <td>
+                                    <div class="form-check text-center">
+                                        <input class="form-check-input"
+                                               type="checkbox" value=""
+                                               id="{{i}}"
+                                               (click)="Validar(est.estId)"
+                                               [ngClass]="{'disabled':est.act==false}">
+                                    </div>
+                                </td>
+                                <td>{{est.estDes}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="panel panel-bancor">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <span> Observaciones</span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <textarea class="form-control" name="textarea" [(ngModel)]="obs"></textarea>
+                </div>
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+                <hr />
+
+
+            </div>
+
+            <div class="modal-footer">
+
+                <div class="text-center">
+
+                    <button type="button" class="btn btn-light btninter" (click)="Confirmar()" *ngIf="estId != 0">Confirmar </button>
+                    <button type="button" class="btn btn-light btninter right buttonImprimir " (click)="close()">Cancelar </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
