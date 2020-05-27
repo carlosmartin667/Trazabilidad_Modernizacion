@@ -41,6 +41,7 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
         _this.nrotarjeta = new SolicitudesSeguimientoModel_1.SolicitudesSeguimientoModel();
         _this.ListaEstados = new Array();
         _this.listaPlastico = new detallePlasticoModel_1.DetallePlasticoModel();
+        _this.obs = "";
         return _this;
     }
     ModalEstadoComponent.prototype.ngOnInit = function () {
@@ -48,7 +49,7 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
         this._SeguimientoServicese.GetObtenerNroTarjeta(this.listaPlastico.Reg_id).subscribe(function (x) {
             _this.nrotarjeta = x.body;
         });
-        this._consultasPlasticosServices.GetObtenerSecuenciaEstado(127).subscribe(function (x) {
+        this._consultasPlasticosServices.GetObtenerSecuenciaEstado(this.listaPlastico.Estado_id).subscribe(function (x) {
             _this.ListaEstados = x.body;
         });
         this.estadosPosibles();

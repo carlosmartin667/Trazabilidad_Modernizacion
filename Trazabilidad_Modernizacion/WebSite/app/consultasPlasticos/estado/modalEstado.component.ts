@@ -34,13 +34,14 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
         this.nrotarjeta = new SolicitudesSeguimientoModel();
         this.ListaEstados = new Array<Estado>();
         this.listaPlastico = new DetallePlasticoModel();
+        this.obs = "";
     }
 
     ngOnInit() {
         this._SeguimientoServicese.GetObtenerNroTarjeta(this.listaPlastico.Reg_id).subscribe(x => {
             this.nrotarjeta = x.body;
         });
-        this._consultasPlasticosServices.GetObtenerSecuenciaEstado(127).subscribe(x => {
+        this._consultasPlasticosServices.GetObtenerSecuenciaEstado(this.listaPlastico.Estado_id).subscribe(x => {
             this.ListaEstados =x.body;
         });
         this.estadosPosibles();

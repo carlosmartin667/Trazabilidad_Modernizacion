@@ -190,8 +190,10 @@ namespace WebSite.Controllers
                     estado = estadoRepository.ObtenerEstado((decimal)item.cxeEstadoDestino);
                     estados.Add(estado);
                 }
+                List<Estados> resulatdo2 = estados.GroupBy(x => x).Select(grp => grp.First()).ToList();
+                
 
-                    return Json(estados, JsonRequestBehavior.AllowGet);
+                    return Json(resulatdo2, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {

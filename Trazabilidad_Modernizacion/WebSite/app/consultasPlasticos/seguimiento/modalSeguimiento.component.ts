@@ -14,7 +14,7 @@ export interface AlertModel {
     templateUrl: 'app/consultasPlasticos/seguimiento/modalSeguimiento.component.html',
     styleUrls: ['app/consultasPlasticos/seguimiento/modalSeguimiento.component.css']
 })
-
+                                      
 
 export class ModalSeguimientoComponent extends DialogComponent<AlertModel, null> implements AlertModel {
    
