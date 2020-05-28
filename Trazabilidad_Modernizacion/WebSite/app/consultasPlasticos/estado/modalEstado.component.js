@@ -42,6 +42,7 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
         _this.ListaEstados = new Array();
         _this.listaPlastico = new detallePlasticoModel_1.DetallePlasticoModel();
         _this.obs = "";
+        _this.CantidadEstados = 0;
         return _this;
     }
     ModalEstadoComponent.prototype.ngOnInit = function () {
@@ -51,7 +52,7 @@ var ModalEstadoComponent = /** @class */ (function (_super) {
         });
         this._consultasPlasticosServices.GetObtenerSecuenciaEstado(this.listaPlastico.Estado_id).subscribe(function (x) {
             _this.ListaEstados = x.body;
-            console.log(x.body);
+            _this.CantidadEstados = _this.ListaEstados.length;
         });
         this.estadosPosibles();
     };

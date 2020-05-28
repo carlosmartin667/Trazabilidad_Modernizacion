@@ -181,14 +181,12 @@ namespace WebSite.Controllers
             try
             {
                 var resultado = estados_SecuenciaRepository.TraerSecuencia(Estadoid);
-
-
-
+                var resulatdo2 = resultado.GroupBy(x => x.cxeEstadoDestino).Select(y => y.First());
                 List<Estados> estados = new List<Estados>();
-
                 List<EstadoViewModel> estados2 = new List<EstadoViewModel>();
 
-                foreach (var item in resultado)
+
+                foreach (var item in resulatdo2)
                 {
                     Estados estado = new Estados();
                     estado = estadoRepository.ObtenerEstado((decimal)item.cxeEstadoDestino);
@@ -205,10 +203,7 @@ namespace WebSite.Controllers
                     estados2.Add(estado2);
                 }
           
-
-                List<EstadoViewModel> resulatdo2 = estados2.GroupBy(x => x).Select(grp => grp.First()).ToList();
-
-                return Json(resulatdo2, JsonRequestBehavior.AllowGet);
+                return Json(estados2, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {

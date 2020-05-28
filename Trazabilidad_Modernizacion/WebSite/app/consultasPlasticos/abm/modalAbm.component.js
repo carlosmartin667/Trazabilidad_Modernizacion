@@ -42,8 +42,10 @@ var ModalAbmComponent = /** @class */ (function (_super) {
         _this.ListaEstados = new Array();
         _this.listaPlastico = new detallePlasticoModel_1.DetallePlasticoModel();
         _this.obs = "";
+        _this.CantidadEstados = 0;
         return _this;
     }
+    ModalAbmComponent_1 = ModalAbmComponent;
     ModalAbmComponent.prototype.ngOnInit = function () {
         var _this = this;
         if (this.accion == 1) {
@@ -60,6 +62,7 @@ var ModalAbmComponent = /** @class */ (function (_super) {
             });
             this._consultasPlasticosServices.GetObtenerSecuenciaEstado(this.listaPlastico.Estado_id).subscribe(function (x) {
                 _this.ListaEstados = x.body;
+                _this.CantidadEstados = _this.ListaEstados.length;
             });
             this.estadosPosibles();
         }
@@ -105,8 +108,16 @@ var ModalAbmComponent = /** @class */ (function (_super) {
         catch (e) {
             console.log(e);
         }
+        try {
+            this.dialogService.removeAll();
+            this.dialogService.addDialog(ModalAbmComponent_1, { listaPlastico: this.listaPlastico, reg_id: this.reg_id, accion: 1 });
+        }
+        catch (e) {
+            console.log(e);
+        }
     };
-    ModalAbmComponent = __decorate([
+    var ModalAbmComponent_1;
+    ModalAbmComponent = ModalAbmComponent_1 = __decorate([
         core_1.Component({
             selector: 'consultasPlasticos-component',
             templateUrl: 'app/consultasPlasticos/abm/modalAbm.component.html',

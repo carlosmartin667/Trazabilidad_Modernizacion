@@ -32,13 +32,14 @@ export class ModalAbmComponent extends DialogComponent<AlertModel, null> impleme
     public estId: string = "0";
     public obs: string;
     public ListaEstadosPermitidas: Array<Estado>;
-
+    public CantidadEstados: number;
     constructor(dialogService: DialogService, private _SeguimientoServicese: SeguimientoServices, private _EstadoService: EstadoService, private _consultasPlasticosServices: ConsultasPlasticosServices) {
         super(dialogService);
         this.nrotarjeta = new SolicitudesSeguimientoModel();
         this.ListaEstados = new Array<Estado>();
         this.listaPlastico = new DetallePlasticoModel();
         this.obs = "";
+        this.CantidadEstados = 0;
     }
 
     ngOnInit() {
@@ -58,6 +59,8 @@ export class ModalAbmComponent extends DialogComponent<AlertModel, null> impleme
             });
             this._consultasPlasticosServices.GetObtenerSecuenciaEstado(this.listaPlastico.Estado_id).subscribe(x => {
                 this.ListaEstados = x.body;
+                this.CantidadEstados = this.ListaEstados.length;
+
             });
             this.estadosPosibles();
 
@@ -110,5 +113,13 @@ export class ModalAbmComponent extends DialogComponent<AlertModel, null> impleme
             console.log(e);
         }
 
+        try {
+            this.dialogService.removeAll();
+            this.dialogService.addDialog(ModalAbmComponent, { listaPlastico: this.listaPlastico, reg_id: this.reg_id, accion: 1 });
+
+        } catch (e) {
+            console.log(e);
+        }
     }
+
 }

@@ -28,6 +28,7 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
     public estId: string = "0";
     public obs: string;
     public ListaEstadosPermitidas: Array<Estado>;
+    public CantidadEstados: number;
 
     constructor(dialogService: DialogService, private _EstadoService: EstadoService, private _SeguimientoServicese: SeguimientoServices, private _consultasPlasticosServices: ConsultasPlasticosServices) {
         super(dialogService);
@@ -35,6 +36,7 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
         this.ListaEstados = new Array<Estado>();
         this.listaPlastico = new DetallePlasticoModel();
         this.obs = "";
+        this.CantidadEstados = 0;
     }
 
     ngOnInit() {
@@ -43,7 +45,7 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
         });
         this._consultasPlasticosServices.GetObtenerSecuenciaEstado(this.listaPlastico.Estado_id).subscribe(x => {
             this.ListaEstados = x.body;
-            console.log(x.body);
+            this.CantidadEstados = this.ListaEstados.length;
         });
         this.estadosPosibles();
     }
@@ -88,6 +90,7 @@ export class ModalEstadoComponent extends DialogComponent<AlertModel, null> impl
         console.log(this.listaPlastico.Estado_id);
         var Estadoid = this.estId;
         var IdPlastico = this.listaPlastico.Reg_id;
+
         try {
             this._consultasPlasticosServices.modificarEstado(IdPlastico, Estadoid,this.obs).subscribe();
         } catch (e) {

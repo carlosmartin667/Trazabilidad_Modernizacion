@@ -20,4 +20,3 @@ C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacio
 C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.dll
 C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.pdb
-C:\Users\Admin\Source\Repos\Trazabilidad_Modernizacion\Trazabilidad_Modernizacion\Trazabilidad.Core.Domain\obj\Debug\Trazabilidad.Core.Domain.csprojAssemblyReference.cache
