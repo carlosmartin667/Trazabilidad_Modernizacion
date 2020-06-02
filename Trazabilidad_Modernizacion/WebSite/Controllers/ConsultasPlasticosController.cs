@@ -41,16 +41,7 @@ namespace WebSite.Controllers
             try
             {
                 List<PlasticoViewModel> res = new List<PlasticoViewModel>();
-
-
                 var resultado = plasticosRepository.Paginador(PaginaActual);
-
-
-                //var resultado = plasticosRepository.Get().OrderBy(x => x.Reg_id)
-                //    .Skip((PaginaActual - 1) * 10)
-                //    .Take(10)
-                //    .ToList();
-
 
                 foreach (var item in resultado)
                 {
@@ -94,7 +85,6 @@ namespace WebSite.Controllers
         public JsonResult CombosPlasticoEstados()
         {
             var resultadoCombosPlasticoEstados = estadoRepository.ObtenerEstadoRepository();
-
 
             return Json(resultadoCombosPlasticoEstados, JsonRequestBehavior.AllowGet);
         }
@@ -156,10 +146,8 @@ namespace WebSite.Controllers
             }
             catch (Exception ex)
             {
-
                 throw;
             }
-
 
         }
         public JsonResult ObtenerInfoPaginacion()
@@ -169,7 +157,6 @@ namespace WebSite.Controllers
             resultadoPaginador.PaginaActual = 1;
             resultadoPaginador.CantidadDeRegistros = cantidad;
             resultadoPaginador.CantidadDeBotones = (int)Math.Ceiling(cantidad / (double)10);
-
 
             return Json(resultadoPaginador, JsonRequestBehavior.AllowGet);
         }
@@ -184,7 +171,6 @@ namespace WebSite.Controllers
                 var resulatdo2 = resultado.GroupBy(x => x.cxeEstadoDestino).Select(y => y.First());
                 List<Estados> estados = new List<Estados>();
                 List<EstadoViewModel> estados2 = new List<EstadoViewModel>();
-
 
                 foreach (var item in resulatdo2)
                 {

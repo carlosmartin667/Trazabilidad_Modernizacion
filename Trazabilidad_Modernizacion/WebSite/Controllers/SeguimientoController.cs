@@ -68,13 +68,26 @@ namespace WebSite.Controllers
         {
 
             var tarjetanumero = plasticosRepository.ObtenerPlastico(Convert.ToInt32(solId), "");
-            var respuestaNrotarjeta = DevolverFormatoNrotarjeta(tarjetanumero.Plastico_nro);
-            return Json(respuestaNrotarjeta, JsonRequestBehavior.AllowGet);
+            //var respuestaNrotarjeta = DevolverFormatoNrotarjeta(tarjetanumero.Plastico_nro);
+
+            string tarjeta = "";
+
+            tarjeta = Convert.ToString(tarjetanumero.Plastico_nro);
+
+            var noMostrar = "XXXXXXXXXXXX";
+            var ulimosNumeros = tarjeta.Substring(11, 4);
+
+            tarjeta = noMostrar + ulimosNumeros;
+
+
+
+
+            return Json(tarjeta, JsonRequestBehavior.AllowGet);
         }
         public JsonResult DevolverFormatoNrotarjeta(decimal tarjetanumero)
         {
             string numero = "";
-            SolicitudesSeguimientoViewModel SeguimientoViewModel = new SolicitudesSeguimientoViewModel();
+            //SolicitudesSeguimientoViewModel SeguimientoViewModel = new SolicitudesSeguimientoViewModel();
             string tarjeta = "";
 
             tarjeta = Convert.ToString(tarjetanumero);
@@ -82,10 +95,10 @@ namespace WebSite.Controllers
             var noMostrar = "XXXXXXXXXXXX";
             var ulimosNumeros = tarjeta.Substring(11, 4);
 
-            numero = noMostrar + ulimosNumeros;
+            tarjeta = noMostrar + ulimosNumeros;
 
-            SeguimientoViewModel.tarjeta = numero;
-            return Json(SeguimientoViewModel, JsonRequestBehavior.AllowGet);
+            //SeguimientoViewModel.tarjeta = numero;
+            return Json(tarjeta, JsonRequestBehavior.AllowGet);
         }
 
     }

@@ -25,7 +25,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ng2_bootstrap_modal_1 = require("ng2-bootstrap-modal");
 var seguimiento_service_1 = require("../../services/seguimiento.service");
-var SolicitudesSeguimientoModel_1 = require("../../model/SolicitudesSeguimientoModel");
 var detallePlasticoModel_1 = require("../../model/detallePlasticoModel");
 var estado_service_1 = require("../../services/estado.service");
 var consultasPlasticos_service_1 = require("../../services/consultasPlasticos.service");
@@ -38,7 +37,7 @@ var ModalAbmComponent = /** @class */ (function (_super) {
         _this._consultasPlasticosServices = _consultasPlasticosServices;
         _this.activo = false;
         _this.estId = "0";
-        _this.nrotarjeta = new SolicitudesSeguimientoModel_1.SolicitudesSeguimientoModel();
+        _this.nrotarjeta = "";
         _this.ListaEstados = new Array();
         _this.listaPlastico = new detallePlasticoModel_1.DetallePlasticoModel();
         _this.obs = "";

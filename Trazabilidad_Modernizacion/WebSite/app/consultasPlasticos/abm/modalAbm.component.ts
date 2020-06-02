@@ -24,7 +24,7 @@ export class ModalAbmComponent extends DialogComponent<AlertModel, null> impleme
 
     accion: number;
     reg_id: any;
-    public nrotarjeta: SolicitudesSeguimientoModel;
+    public nrotarjeta: string;
     public Seguimiento: Array<SolicitudesSeguimientoModel>;
     public ListaEstados: Array<Estado>;
     public listaPlastico: DetallePlasticoModel;
@@ -33,9 +33,10 @@ export class ModalAbmComponent extends DialogComponent<AlertModel, null> impleme
     public obs: string;
     public ListaEstadosPermitidas: Array<Estado>;
     public CantidadEstados: number;
+
     constructor(dialogService: DialogService, private _SeguimientoServicese: SeguimientoServices, private _EstadoService: EstadoService, private _consultasPlasticosServices: ConsultasPlasticosServices) {
         super(dialogService);
-        this.nrotarjeta = new SolicitudesSeguimientoModel();
+        this.nrotarjeta = "";
         this.ListaEstados = new Array<Estado>();
         this.listaPlastico = new DetallePlasticoModel();
         this.obs = "";
@@ -121,5 +122,4 @@ export class ModalAbmComponent extends DialogComponent<AlertModel, null> impleme
             console.log(e);
         }
     }
-
 }

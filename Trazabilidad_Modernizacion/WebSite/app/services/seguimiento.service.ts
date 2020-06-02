@@ -25,9 +25,9 @@ export class SeguimientoServices {
 
 
 
-    GetObtenerNroTarjeta(solId: any): Observable<HttpResponse<SolicitudesSeguimientoModel>> {
+    GetObtenerNroTarjeta(solId: any): Observable<HttpResponse<any>> {
         let consulta = Constantes.URL_OBTENER_OBTENERNRMTARJETA + "?solId=" + solId;
-        return this._http.get<SolicitudesSeguimientoModel>(consulta, { observe: 'response' })
+        return this._http.get<any>(consulta, { observe: 'response' })
             .pipe(
                 catchError((error: HttpErrorResponse) => {
                     console.log(error.message);

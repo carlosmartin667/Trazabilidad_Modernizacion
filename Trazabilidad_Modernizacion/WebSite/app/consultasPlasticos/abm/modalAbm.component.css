@@ -10,8 +10,27 @@
 .inputNrmTarejeta {
     background: #fff;
 }
+.colum {
+    width: 140px;
+   
+}
 
 .Body {
     color: #fff;
     background: #ed969e;
+}
+.mymodal {
+    margin: 0 auto;
+    /*overflow: hidden;*/
+    /*min-width: 50%;*/
+    /*min-height: 100vh;
+    margin: 0;*/
+    /*overflow-y: auto;*/
+    /*overflow: hidden;*/
+    /*overflow: inherit;*/
+    /*padding: 0 !important;*/
+    /*max-height: calc(100vh - 210px);
+    overflow-y: auto;*/
+    /*overflow: scroll;*/
+    overflow: inherit;
 }
