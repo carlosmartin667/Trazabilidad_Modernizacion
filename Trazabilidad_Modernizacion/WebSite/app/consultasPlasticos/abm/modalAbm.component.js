@@ -42,38 +42,25 @@ var ModalAbmComponent = /** @class */ (function (_super) {
         _this.listaPlastico = new detallePlasticoModel_1.DetallePlasticoModel();
         _this.obs = "";
         _this.CantidadEstados = 0;
+        _this.ListaEstadosPermitidas = new Array();
         return _this;
     }
     ModalAbmComponent_1 = ModalAbmComponent;
     ModalAbmComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this._SeguimientoServicese.GetObtenerNroTarjeta(this.reg_id).subscribe(function (x) {
+            _this.nrotarjeta = x.body;
+        });
         if (this.accion == 1) {
             this._SeguimientoServicese.GetInfoSeguimiento(this.reg_id).subscribe(function (x) {
                 _this.Seguimiento = x.body;
             });
-            this._SeguimientoServicese.GetObtenerNroTarjeta(this.reg_id).subscribe(function (x) {
-                _this.nrotarjeta = x.body;
-            });
         }
         if (this.accion == 2) {
-            this._SeguimientoServicese.GetObtenerNroTarjeta(this.listaPlastico.Reg_id).subscribe(function (x) {
-                _this.nrotarjeta = x.body;
-            });
             this._consultasPlasticosServices.GetObtenerSecuenciaEstado(this.listaPlastico.Estado_id).subscribe(function (x) {
                 _this.ListaEstados = x.body;
                 _this.CantidadEstados = _this.ListaEstados.length;
             });
-            this.estadosPosibles();
-        }
-    };
-    ModalAbmComponent.prototype.estadosPosibles = function () {
-        for (var i = 0; i < this.ListaEstados.length; i++) {
-            if (this.ListaEstados[i].estId < this.listaPlastico.Estado_id.toString()) {
-                this.ListaEstadosPermitidas.push(this.ListaEstados[i]);
-            }
-        }
-        for (var i = 0; i < this.ListaEstadosPermitidas.length; i++) {
-            console.log(this.ListaEstadosPermitidas[i]);
         }
     };
     ModalAbmComponent.prototype.Validar = function (estId) {
@@ -98,7 +85,7 @@ var ModalAbmComponent = /** @class */ (function (_super) {
         }
     };
     ModalAbmComponent.prototype.Confirmar = function () {
-        console.log(this.listaPlastico.Estado_id);
+        //console.log(this.listaPlastico.Estado_id);
         var Estadoid = this.estId;
         var IdPlastico = this.listaPlastico.Reg_id;
         try {

@@ -73,7 +73,7 @@ export class ConsultasPlasticosComponent implements OnInit {
         try {
             this._consultasPlasticosServices.GetListaCombosEstados().subscribe(x => {
                 this.ListaEstados = x.body;
-                console.log(this.ListaEstados);
+                //console.log(this.ListaEstados);
             });
         } catch (e) {
             console.log(e);
@@ -105,7 +105,7 @@ export class ConsultasPlasticosComponent implements OnInit {
             this.mensaje = "";
             this._consultasPlasticosServices.GetListaFiltrosPlasticos(this.PlasticoFiltros)
                 .subscribe(x => {
-                    console.log(this.listaPlastico = x)
+                    //console.log(this.listaPlastico = x)
                     this.cantidad = this.listaPlastico.length;
                 });
         }

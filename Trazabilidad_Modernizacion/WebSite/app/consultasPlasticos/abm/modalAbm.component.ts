@@ -41,45 +41,29 @@ export class ModalAbmComponent extends DialogComponent<AlertModel, null> impleme
         this.listaPlastico = new DetallePlasticoModel();
         this.obs = "";
         this.CantidadEstados = 0;
+        this.ListaEstadosPermitidas = new Array<Estado>();
     }
 
     ngOnInit() {
+
+        this._SeguimientoServicese.GetObtenerNroTarjeta(this.reg_id).subscribe(x => {
+            this.nrotarjeta = x.body;
+        });
         if (this.accion == 1) {
             this._SeguimientoServicese.GetInfoSeguimiento(this.reg_id).subscribe(x => {
                 this.Seguimiento = x.body;
             });
-
-            this._SeguimientoServicese.GetObtenerNroTarjeta(this.reg_id).subscribe(x => {
-                this.nrotarjeta = x.body;
-            });
+       
         }
 
         if (this.accion == 2) {
-            this._SeguimientoServicese.GetObtenerNroTarjeta(this.listaPlastico.Reg_id).subscribe(x => {
-                this.nrotarjeta = x.body;
-            });
             this._consultasPlasticosServices.GetObtenerSecuenciaEstado(this.listaPlastico.Estado_id).subscribe(x => {
                 this.ListaEstados = x.body;
                 this.CantidadEstados = this.ListaEstados.length;
-
             });
-            this.estadosPosibles();
-
-        }
-
-    }
-    estadosPosibles() {
-        for (var i = 0; i < this.ListaEstados.length; i++) {
-            if (this.ListaEstados[i].estId < this.listaPlastico.Estado_id.toString()) {
-                this.ListaEstadosPermitidas.push(this.ListaEstados[i])
-            }
-
-        }
-
-        for (var i = 0; i < this.ListaEstadosPermitidas.length; i++) {
-            console.log(this.ListaEstadosPermitidas[i])
         }
     }
+  
     Validar(estId: string) {
 
         if (this.activo == false) {
@@ -105,7 +89,7 @@ export class ModalAbmComponent extends DialogComponent<AlertModel, null> impleme
 
 
     Confirmar() {
-        console.log(this.listaPlastico.Estado_id);
+        //console.log(this.listaPlastico.Estado_id);
         var Estadoid = this.estId;
         var IdPlastico = this.listaPlastico.Reg_id;
         try {
