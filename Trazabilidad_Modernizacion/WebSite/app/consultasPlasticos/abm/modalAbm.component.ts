@@ -89,17 +89,30 @@ export class ModalAbmComponent extends DialogComponent<AlertModel, null> impleme
 
 
     Confirmar() {
-        //console.log(this.listaPlastico.Estado_id);
+     
         var Estadoid = this.estId;
         var IdPlastico = this.listaPlastico.Reg_id;
         try {
             this._consultasPlasticosServices.modificarEstado(IdPlastico, Estadoid, this.obs).subscribe();
+            this.close();
         } catch (e) {
+
             console.log(e);
         }
 
         try {
-            this.dialogService.removeAll();
+     
+            this.dialogService.addDialog(ModalAbmComponent, { listaPlastico: this.listaPlastico, reg_id: this.reg_id, accion: 1 });
+
+        } catch (e) {
+            console.log(e);
+        }
+
+    }
+
+    recargar() {
+        try {
+            this.close();
             this.dialogService.addDialog(ModalAbmComponent, { listaPlastico: this.listaPlastico, reg_id: this.reg_id, accion: 1 });
 
         } catch (e) {

@@ -1,7 +1,10 @@
 ﻿<div class="modal-dialog mymodal modal-lg" style="overflow:hidden;">
     <div class="modal-content ">
 
-        <div *ngIf="accion ==1 ">
+        <div *ngIf="accion == 1 ">
+            <div *ngIf="accion == 3 ">
+                <h1>hola</h1>
+            </div>
 
             <div class="modal-header">
                 <button type="button" class="close" (click)="close()">&times;</button>
@@ -51,6 +54,7 @@
 
             <div class="modal-footer">
                 <div class="text-center">
+                    <button type="button" class="btn btn-light btninter " (click)="recargar()">recargar </button>
                     <button type="button" class="btn btn-light btninter " (click)="close()">Cerrar </button>
                     <button type="button" class="btn btn-light btninter right buttonImprimir  ">Imprimir </button>
                 </div>

@@ -172,11 +172,7 @@
     <Content Include="app\app.component.html" />
     <Content Include="app\consultasPlasticos\abm\modalAbm.component.css" />
     <Content Include="app\consultasPlasticos\abm\modalAbm.component.html" />
-    <Content Include="app\consultasPlasticos\seguimiento\modalSeguimiento.component.css" />
-    <Content Include="app\consultasPlasticos\seguimiento\modalSeguimiento.component.html" />
     <Content Include="app\consultasPlasticos\consultasPlasticos.component.html" />
-    <Content Include="app\consultasPlasticos\estado\modalEstado.component.css" />
-    <Content Include="app\consultasPlasticos\estado\modalEstado.component.html" />
     <Content Include="app\consultas\consultas.component.html" />
     <Content Include="app\detallePlastico\detallePlastico.component.html" />
     <Content Include="app\detalleTarjeta\detalleTarjeta.component.html" />
@@ -423,11 +419,9 @@
     <TypeScriptCompile Include="app\app.main.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\consultasPlasticos\abm\modalAbm.component.ts" />
-    <TypeScriptCompile Include="app\consultasPlasticos\seguimiento\modalSeguimiento.component.ts" />
     <TypeScriptCompile Include="app\consultasPlasticos\consultasPlasticos.component.ts" />
     <TypeScriptCompile Include="app\consultasPlasticos\consultasPlasticos.main.ts" />
     <TypeScriptCompile Include="app\consultasPlasticos\consultasPlasticos.module.ts" />
-    <TypeScriptCompile Include="app\consultasPlasticos\estado\modalEstado.component.ts" />
     <TypeScriptCompile Include="app\consultas\consultas.component.ts" />
     <TypeScriptCompile Include="app\consultas\consultas.main.ts" />
     <TypeScriptCompile Include="app\consultas\consultas.module.ts" />
